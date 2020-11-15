@@ -14,7 +14,7 @@ transform = Transform( -4.28667e-08, -0.926055, 0.377388, -8.55161e-09, 0.377388
 [node name="Characters" type="Spatial" parent="."]
 
 [node name="Character" parent="Characters" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863667, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7703, 0.863667, 103.411 )
 
 [node name="Character2" parent="Characters" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863667, 8.8344 )
@@ -23,4 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863667, 8.8344 )
 
 [node name="MenuAction" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_top = 644.0
+margin_left = 2.24493
+margin_top = 1.95178
+margin_right = 2.24487
+margin_bottom = -642.048

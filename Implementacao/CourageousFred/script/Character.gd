@@ -1,5 +1,9 @@
 extends Spatial
 
+var skillUtil = preload("res://util/SkillUtil.gd").new()
+
+var idChar = Super.CHARACTERS.FRED
+
 var action
 var actionChanged
 
@@ -12,10 +16,11 @@ var movSpeed:int = 20
 var turnSpeed:int = 8
 
 var hp:int = 10
-
+ 
 func _ready():
-	pass 
-
+	Super.connect("on_click_btn_skill",self,"on_click_btn_skill")
+	Super.connect("on_complete_skill",self,"on_complete_skill")
+	
 func _process(delta):
 
 	if actualPoint:
@@ -45,7 +50,7 @@ func _process(delta):
 
 func doAction(pathMove) -> void:
 	if action == Super.ACTIONS.MOVE:
-		move(pathMove)
+		move(pathMove) 
 	 
 func move(pathMove): 
 	if !actionChanged:
@@ -60,4 +65,14 @@ func setSelected(isSelected:bool) -> void :
 	
 func setAction(newAction) -> void:
 	action = newAction 
+	
+	if action == Super.ACTIONS.ATACK:
+		Super.menuAction.showSubActions(idChar)
+		 
+func on_click_btn_skill(idSkill) -> void :
+	if self == Super.selectedCharacter:
+		skillUtil.process(self,idSkill, null)
 		
+func on_complete_skill(point) -> void :
+	if self == Super.selectedCharacter:
+		skillUtil.process(self,Super.idSkillCurrent,point)		

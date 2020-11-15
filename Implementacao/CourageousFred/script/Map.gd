@@ -18,14 +18,18 @@ func _unhandled_input(event):
 				var from = Super.camera.project_ray_origin(event.position)	 
 				var to = from + Super.camera.project_ray_normal(event.position)*1000
 				var p = Super.navMap.get_closest_point_to_segment(from, to)
-							
-				var begin = Super.navMap.get_closest_point(Super.selectedCharacter.get_translation())
-				var end = p
-							
-				var p2 = Super.navMap.get_simple_path(begin, end, true)
-				var path = Array(p2)  
-				
-				Super.selectedCharacter.doAction(path)	
+					
+				if Super.idSkillCurrent != null:
+					Super.emit_signal("on_complete_skill",p)
+				else :
+								
+					var begin = Super.navMap.get_closest_point(Super.selectedCharacter.get_translation())
+					var end = p
+								
+					var p2 = Super.navMap.get_simple_path(begin, end, true)
+					var path = Array(p2)  
+					
+					Super.selectedCharacter.doAction(path)	
 
 
 func onClickCharacter() -> Node :

@@ -30,5 +30,28 @@ margin_left = 44.0
 margin_right = 89.0
 margin_bottom = 40.0
 text = "ATAC"
+
+[node name="SubActions" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 597.0
+margin_top = 26.0
+margin_right = 705.0
+margin_bottom = 66.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="Button" parent="."]
+visible = false
+margin_left = 571.0
+margin_top = 26.0
+margin_right = 591.0
+margin_bottom = 66.0
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Actions/Move" to="." method="_on_Move_button_up"]
 [connection signal="button_up" from="Actions/Atack" to="." method="_on_Atack_button_up"]
+[connection signal="button_up" from="X" to="." method="_on_X_button_up"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/MenuActionUI.gd" type="Script" id=1]
+
+[node name="MenuAction" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 640.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Actions" type="HBoxContainer" parent="."]
+margin_left = 597.0
+margin_top = 26.0
+margin_right = 693.0
+margin_bottom = 66.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="Button" parent="Actions"]
+margin_right = 40.0
+margin_bottom = 40.0
+text = "RUN"
+
+[node name="Atack" type="Button" parent="Actions"]
+margin_left = 44.0
+margin_right = 89.0
+margin_bottom = 40.0
+text = "ATAC"
+[connection signal="button_up" from="Actions/Move" to="." method="_on_Move_button_up"]
+[connection signal="button_up" from="Actions/Atack" to="." method="_on_Atack_button_up"]

@@ -11,7 +11,9 @@ func GER_ESC(character,point) -> void :
 		Super.idSkillCurrent = Super.SKILLS.GER_ESC 
 	else:
 		Super.idSkillCurrent = null
-		print(point)
+		var characterAdd = load("res://comp/Character.tscn").instance()	
+		characterAdd.init(Super.CHARACTERS.ESCAVADOR,point)
+		Super.charactersNode.add_child(characterAdd)
 		
 func GER_PIST(character) -> void :
 	print("GER_PIST")

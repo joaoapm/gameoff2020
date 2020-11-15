@@ -17,9 +17,20 @@ var turnSpeed:int = 8
 
 var hp:int = 10
  
+export(Resource) onready var node
+
 func _ready():
 	Super.connect("on_click_btn_skill",self,"on_click_btn_skill")
 	Super.connect("on_complete_skill",self,"on_complete_skill")
+	
+	if node != null:
+		 self.get_node("mesh").add_child(node.instance())
+
+func init(character, point) -> void: 
+	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
+	idChar = character
+	$mesh.add_child(assetAdd) 
+	global_transform.origin = point
 	
 func _process(delta):
 
@@ -61,7 +72,7 @@ func move(pathMove):
 		
 func setSelected(isSelected:bool) -> void :
 	$selected.visible = isSelected;	
-	Super.menuAction.show()
+	Super.menuAction.showActions()
 	
 func setAction(newAction) -> void:
 	action = newAction 

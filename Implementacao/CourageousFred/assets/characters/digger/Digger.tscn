@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/characters/digger/import/Digger.glb" type="PackedScene" id=1]
+
+[node name="Digger" instance=ExtResource( 1 )]
+transform = Transform( -0.722363, 0, -6.3151e-08, 0, 0.722363, 0, 6.3151e-08, 0, -0.722363, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ESPERANDO"

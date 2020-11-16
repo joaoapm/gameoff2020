@@ -14,7 +14,7 @@ func showSubActions(idChar) -> void:
 		child.queue_free() 
 	for skill in Super.SKILLS_CHAR[idChar]:
 		var btnSkill = preload("res://ui/BtnSkillUI.tscn").instance()
-		btnSkill.setLabel(String(skill))
+		btnSkill.initButton(skill)
 		btnSkill.id = skill    
 		$SubActions.add_child(btnSkill) 
 	$SubActions.show()	 
@@ -24,4 +24,8 @@ func showActions() -> void:
 	$SubActions.hide()
 	$Actions/Move.pressed = false 
 	$Actions/Atack.pressed = false
+	
+func resetSkillButtons() -> void:
+	for btn in $SubActions.get_children():
+		btn.pressed = false	
 

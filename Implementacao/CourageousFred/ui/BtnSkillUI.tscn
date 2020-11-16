@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://script/BtnSkillUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/block.png" type="Texture" id=2]
 
 [node name="BtnSkill" type="TextureButton"]
 margin_top = -1.0
@@ -9,4 +10,26 @@ margin_bottom = 45.0
 rect_min_size = Vector2( 46, 46 )
 toggle_mode = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="block" type="Control" parent="."]
+visible = false
+margin_right = 50.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="block" type="Sprite" parent="block"]
+modulate = Color( 1, 1, 1, 0.576471 )
+position = Vector2( 24.5, 24.625 )
+scale = Vector2( 1.03, 0.995 )
+texture = ExtResource( 2 )
+
+[node name="lblTime" type="Label" parent="block"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "asdas"
 [connection signal="button_up" from="." to="." method="_on_BtnSkill_button_up"]

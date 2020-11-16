@@ -6,6 +6,7 @@ var idChar = Super.CHARACTERS.FRED
 
 var action
 var actionChanged
+var player
 
 var finalPoint
 var actualPoint
@@ -24,12 +25,14 @@ func _ready():
 	Super.connect("on_complete_skill",self,"on_complete_skill")
 	
 	if node != null:
-		 self.get_node("mesh").add_child(node.instance())
+		self.get_node("mesh").add_child(node.instance())
+		player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
 	idChar = character
 	$mesh.add_child(assetAdd) 
+	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
 	global_transform.origin = point
 	
 func _process(delta):
@@ -43,7 +46,7 @@ func _process(delta):
 		transform.basis = Basis(quatVlDirLook)		
 
 	if path!= null and path.size() > 1:
-		#player.play("CORRENDO")	
+		player.play("MOVENDO")	
 		var d = get_global_transform().origin.distance_to(path[actualPath]) 
 		if d <= delta * movSpeed:
 			actualPath += 1
@@ -57,7 +60,7 @@ func _process(delta):
 			actualPath = 1 
 			path = null
 			set_process(false)
-			#player.play("ESPERANDO")
+			player.play("ESPERANDO")
 
 func doAction(pathMove) -> void:
 	if action == Super.ACTIONS.MOVE:

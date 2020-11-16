@@ -25,7 +25,8 @@ func showActions() -> void:
 	$Actions/Move.pressed = false 
 	$Actions/Atack.pressed = false
 	
-func resetSkillButtons() -> void:
-	for btn in $SubActions.get_children():
-		btn.pressed = false	
+func resetSkillButtons(idChar) -> void:
+	for child in $SubActions.get_children():
+		child.queue_free() 
+	showSubActions(idChar)	
 

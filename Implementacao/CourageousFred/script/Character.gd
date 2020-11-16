@@ -81,7 +81,6 @@ func setSelected(isSelected:bool) -> void :
 	
 func setAction(newAction) -> void:
 	action = newAction 
-	
 	if action == Super.ACTIONS.ATACK:
 		Super.menuAction.showSubActions(idChar)
 		 

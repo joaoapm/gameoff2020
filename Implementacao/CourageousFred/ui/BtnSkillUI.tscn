@@ -5,8 +5,8 @@
 
 [node name="BtnSkill" type="TextureButton"]
 margin_top = -1.0
-margin_right = 46.0
-margin_bottom = 45.0
+margin_right = 47.0
+margin_bottom = 48.0
 rect_min_size = Vector2( 46, 46 )
 toggle_mode = true
 script = ExtResource( 1 )
@@ -24,12 +24,11 @@ __meta__ = {
 
 [node name="block" type="Sprite" parent="block"]
 modulate = Color( 1, 1, 1, 0.576471 )
-position = Vector2( 24.5, 24.625 )
-scale = Vector2( 1.03, 0.995 )
+position = Vector2( 24.5, 25.125 )
+scale = Vector2( 1.03, 1.015 )
 texture = ExtResource( 2 )
 
 [node name="lblTime" type="Label" parent="block"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "asdas"
 [connection signal="button_up" from="." to="." method="_on_BtnSkill_button_up"]

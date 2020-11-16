@@ -11,7 +11,8 @@ func _ready():
 	GameHelper.createTimer(self,"coolDownTimer")
 
 func coolDownTimer():
-	for skill in Super.COOLDOWN: 
+	for skill in Super.COOLDOWN:
+		Super.emit_signal("on_verify_cooldown")
 		var skillatt = { "id" : skill["id"], "time" :  skill["time"] - 1,  "character": skill["character"]  }
 		Super.COOLDOWN.erase(skill)	  
 		if skillatt["time"] > -1:

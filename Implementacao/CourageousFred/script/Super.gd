@@ -21,7 +21,8 @@ const  SKILLS_CHAR = {
 }
 
 const  CHAR_ASSETS = {
-	CHARACTERS.ESCAVADOR :  preload("res://assets/characters/digger/Digger.tscn") 
+	CHARACTERS.ESCAVADOR :  preload("res://assets/characters/digger/Digger.tscn"),
+	CHARACTERS.PISTOLEIRO :  preload("res://assets/characters/gunslinger/gunslinger.tscn") 
 }
 
 var COOLDOWN = []
@@ -29,3 +30,4 @@ var COOLDOWN = []
 # Signals
 signal on_click_btn_skill(idItem)
 signal on_complete_skill(point)
+signal on_verify_cooldown()

@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://script/MenuActionUI.gd" type="Script" id=1]
-[ext_resource path="res://ui/BtnSkillUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/icons/move.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/move_press.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/move_disabled.png" type="Texture" id=5]
@@ -39,24 +38,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Move" parent="Actions" instance=ExtResource( 2 )]
-margin_left = 587.923
-margin_top = 13.4853
-margin_right = 633.923
-margin_bottom = 59.4853
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 6 )
-texture_disabled = ExtResource( 5 )
-
-[node name="Atack" parent="Actions" instance=ExtResource( 2 )]
-margin_left = 642.337
-margin_top = 13.4853
-margin_right = 688.337
-margin_bottom = 59.4853
+[node name="Atack" type="TextureButton" parent="Actions"]
+margin_left = 641.926
+margin_top = 7.10199
+margin_right = 691.926
+margin_bottom = 57.102
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 7 )
 texture_disabled = ExtResource( 9 )
-[connection signal="button_up" from="Actions/Move" to="." method="_on_Move_button_up"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="TextureButton" parent="Actions"]
+margin_left = 588.562
+margin_top = 6.87401
+margin_right = 638.562
+margin_bottom = 56.874
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Actions/Atack" to="." method="_on_Atack_button_up"]
+[connection signal="button_up" from="Actions/Move" to="." method="_on_Move_button_up"]

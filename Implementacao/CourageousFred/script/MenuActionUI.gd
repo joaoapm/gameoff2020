@@ -4,6 +4,7 @@ func _on_Move_button_up():
 	Super.selectedCharacter.setAction(Super.ACTIONS.MOVE)
 	$Actions/Atack.pressed = false
 	$SubActions.hide() 
+	Super.selectedCharacter.resetActions()
 	
 func _on_Atack_button_up():
 	Super.selectedCharacter.setAction(Super.ACTIONS.ATACK)

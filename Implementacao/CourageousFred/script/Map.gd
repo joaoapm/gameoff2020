@@ -18,8 +18,8 @@ func _unhandled_input(event):
 				var from = Super.camera.project_ray_origin(event.position)	 
 				var to = from + Super.camera.project_ray_normal(event.position)*1000
 				var p = Super.navMap.get_closest_point_to_segment(from, to)
-					
-				if Super.idSkillCurrent != null:
+				var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
+				if Super.idSkillCurrent != null && distanceRange <= 10: 
 					Super.emit_signal("on_complete_skill",p)
 				else :
 								
@@ -38,9 +38,21 @@ func onClickCharacter() -> Node :
 	var ray_to = ray_from + Super.camera.project_ray_normal(mouse_pos) * 1000
 	var space_state = get_world().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to)
+
+	if selection.size() > 0:
+		return selection.collider
+	else :
+		return null
+		
+func onClickSkill() -> Node :
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_from = Super.camera.project_ray_origin(mouse_pos)
+	var ray_to = ray_from + Super.camera.project_ray_normal(mouse_pos) * 1000
+	var space_state = get_world().direct_space_state
+	var selection = space_state.intersect_ray(ray_from, ray_to)
 	
 	if selection.size() > 0:
 		return selection.collider
 	else :
-		return null					
+		return null									
 	

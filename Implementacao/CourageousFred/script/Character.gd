@@ -76,6 +76,8 @@ func move(pathMove):
 func setSelected(isSelected:bool) -> void :
 	$selected.visible = isSelected;	
 	Super.menuAction.showActions()
+	if !isSelected:
+		$selected/range.hide()
 	
 func setAction(newAction) -> void:
 	action = newAction 
@@ -85,8 +87,13 @@ func setAction(newAction) -> void:
 		 
 func on_click_btn_skill(idSkill) -> void :
 	if self == Super.selectedCharacter:
-		skillUtil.process(self,idSkill, null)
+		skillUtil.process(self,idSkill, null) 
+		$selected/range.show()
 		
 func on_complete_skill(point) -> void :
 	if self == Super.selectedCharacter:
 		skillUtil.process(self,Super.idSkillCurrent,point)		
+
+func resetActions() -> void:
+	Super.idSkillCurrent = null
+	$selected/range.hide()

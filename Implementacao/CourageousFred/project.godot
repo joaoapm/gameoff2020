@@ -24,6 +24,15 @@ config/icon="res://icon.png"
 Super="*res://script/Super.gd"
 GameHelper="*res://util/GameHelper.gd"
 
+[debug]
+
+gdscript/warnings/unassigned_variable=false
+gdscript/warnings/unassigned_variable_op_assign=false
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1280
@@ -31,5 +40,4 @@ window/size/height=720
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

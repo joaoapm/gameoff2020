@@ -33,7 +33,7 @@ func init(character, point) -> void:
 	idChar = character
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
-	global_transform.origin = point
+	transform.origin = point
 	
 func _process(delta):
 
@@ -77,8 +77,9 @@ func move(pathMove):
 		set_process(true)		
 		
 func setSelected(isSelected:bool) -> void :
+	action = Super.ACTIONS.MOVE
 	$selected.visible = isSelected;	
-	Super.menuAction.showActions()
+	Super.menuAction.showSubActions()
 	if !isSelected:
 		$selected/range.hide()
 	
@@ -89,7 +90,8 @@ func on_click_btn_skill(idSkill) -> void :
 		
 func on_complete_skill(point) -> void :
 	if self == Super.selectedCharacter:
-		skillUtil.process(self,Super.idSkillCurrent,point)		
+		skillUtil.process(self,Super.idSkillCurrent,point)	
+		$selected/range.hide()	
 
 func resetActions() -> void:
 	Super.idSkillCurrent = null

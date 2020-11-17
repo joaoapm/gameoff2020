@@ -28,3 +28,4 @@ func GER_PIST(character, point) -> void :
 		var characterAdd = load("res://comp/Character.tscn").instance()		
 		characterAdd.init(Super.CHARACTERS.PISTOLEIRO,point)
 		Super.charactersNode.add_child(characterAdd)
+

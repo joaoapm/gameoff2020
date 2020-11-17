@@ -62,6 +62,9 @@ func _process(delta):
 			set_process(false)
 			player.play("ESPERANDO")
 
+func setAction(newAction) -> void:
+	action = newAction 
+	
 func doAction(pathMove) -> void:
 	if action == Super.ACTIONS.MOVE:
 		move(pathMove) 
@@ -79,11 +82,6 @@ func setSelected(isSelected:bool) -> void :
 	if !isSelected:
 		$selected/range.hide()
 	
-func setAction(newAction) -> void:
-	action = newAction 
-	if action == Super.ACTIONS.ATACK:
-		Super.menuAction.showSubActions(idChar)
-		 
 func on_click_btn_skill(idSkill) -> void :
 	if self == Super.selectedCharacter:
 		skillUtil.process(self,idSkill, null) 

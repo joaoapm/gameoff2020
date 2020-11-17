@@ -11,7 +11,7 @@ func GER_ESC(character,point) -> void :
 		Super.idSkillCurrent = Super.SKILLS.GER_ESC 
 	else:
 		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 10, "character": character})
-		Super.menuAction.resetSkillButtons(Super.idSkillCurrent)
+		Super.menuAction.showSubActions()
 		Super.idSkillCurrent = null
 		var characterAdd = load("res://comp/Character.tscn").instance()	
 		characterAdd.init(Super.CHARACTERS.ESCAVADOR,point)
@@ -23,7 +23,7 @@ func GER_PIST(character, point) -> void :
 		Super.idSkillCurrent = Super.SKILLS.GER_PIST
 	else:
 		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 15, "character": character})
-		Super.menuAction.resetSkillButtons(Super.idSkillCurrent)
+		Super.menuAction.showSubActions()
 		Super.idSkillCurrent = null
 		var characterAdd = load("res://comp/Character.tscn").instance()		
 		characterAdd.init(Super.CHARACTERS.PISTOLEIRO,point)

@@ -16,6 +16,8 @@ func on_verify_cooldown():
  
 func _on_BtnSkill_button_up():
 	Super.emit_signal("on_click_btn_skill",id)
+	
+	Super.menuAction.unPress()
 
 func initButton(_id:int) -> void :
 	if _id == Super.SKILLS.GER_ESC :

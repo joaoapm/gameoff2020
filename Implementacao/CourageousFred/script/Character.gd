@@ -8,6 +8,7 @@ var action
 var actionChanged
 var player
 
+var atacking:bool = false
 var finalPoint
 var actualPoint
 var path
@@ -63,10 +64,11 @@ func _process(delta):
 			player.play("ESPERANDO")
 
 func setAction(newAction) -> void:
-	action = newAction 
+	if !atacking:
+		action = newAction 
 	
 func doAction(pathMove) -> void:
-	if action == Super.ACTIONS.MOVE:
+	if action == Super.ACTIONS.MOVE && !atacking:
 		move(pathMove) 
 	 
 func move(pathMove): 
@@ -96,3 +98,11 @@ func on_complete_skill(point) -> void :
 func resetActions() -> void:
 	Super.idSkillCurrent = null
 	$selected/range.hide()
+	
+func doAtack():
+	atacking = true
+	player.play("ATAQUE")
+	
+func endAtack():
+	atacking = false
+	player.play("ESPERANDO")			

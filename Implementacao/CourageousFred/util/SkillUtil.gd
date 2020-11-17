@@ -26,6 +26,7 @@ func GER_CHAR(character,point,id) -> void :
 		Super.menuAction.showSubActions()
 		Super.idSkillCurrent = null
 		character.doAtack()
+		character.showAtackProgress(5)
 		yield(character.get_tree().create_timer(5.0), "timeout")
 		character.endAtack()
 		var characterAdd = load("res://comp/Character.tscn").instance()	

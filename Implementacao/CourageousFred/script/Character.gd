@@ -105,4 +105,7 @@ func doAtack():
 	
 func endAtack():
 	atacking = false
-	player.play("ESPERANDO")			
+	player.play("ESPERANDO")	
+	
+func showAtackProgress(time):
+	$ProgBarCoolDown.start(time)				

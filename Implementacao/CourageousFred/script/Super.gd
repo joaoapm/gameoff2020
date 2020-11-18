@@ -5,9 +5,12 @@ var navMap:Navigation
 var menuAction:Control
 var idSkillCurrent = null
 var charactersNode
+var enemyNode
 var inimigo
 
 var selectedCharacter
+
+enum TEAM {PLAYER, ENEMY}
 
 enum ACTIONS {MOVE, ATACK}
 
@@ -36,3 +39,4 @@ var COOLDOWN = []
 signal on_click_btn_skill(idItem)
 signal on_complete_skill(point)
 signal on_verify_cooldown()
+signal on_hit_target(target,body)

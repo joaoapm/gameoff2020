@@ -59,6 +59,11 @@ func GUNS_SHOT(character,point,id) :
 	Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
 	Super.menuAction.showSubActions()
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()
-	bulledAdd.init(character)
-	character.doAtack(Super.inimigo.get_global_transform().origin, false)
+	bulledAdd.init(character,Super.enemyNode.get_child(0),Super.TEAM.PLAYER,true)
+	character.doAtack(Super.enemyNode.get_child(0).get_global_transform().origin, false)
+	
+func IA_SHOT(character,target) :  
+	var bulledAdd = load("res://comp/Bullet.tscn").instance()
+	bulledAdd.init(character,target,Super.TEAM.ENEMY,false)
+	character.doAtack(target.get_global_transform().origin, false)
 	

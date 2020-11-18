@@ -1870,3 +1870,6 @@ anims/ESPERANDO = SubResource( 4 )
 anims/MORTO = SubResource( 5 )
 anims/MOVENDO = SubResource( 6 )
 anims/PADRAO = SubResource( 7 )
+
+[node name="target" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00854965, 1.6072, 0.401175 )

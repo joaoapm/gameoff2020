@@ -19,6 +19,7 @@ var turnSpeed:int = 8
 
 var hp:int = 10
  
+export(bool) onready var isEnemy
 export(Resource) onready var node
 
 func _ready():
@@ -35,6 +36,7 @@ func init(character, point) -> void:
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
 	transform.origin = point
+	$mesh.set_layer_mask_bit(3,true)
 	
 func _process(delta):
 
@@ -64,26 +66,27 @@ func _process(delta):
 			player.play("ESPERANDO")
 
 func setAction(newAction) -> void:
-	if !atacking:
+	if !atacking && !isEnemy:
 		action = newAction 
 	
 func doAction(pathMove) -> void:
-	if action == Super.ACTIONS.MOVE && !atacking:
+	if !isEnemy && action == Super.ACTIONS.MOVE && !atacking:
 		move(pathMove) 
 	 
 func move(pathMove): 
-	if !actionChanged:
+	if !isEnemy && !actionChanged:
 		changePath = true 
 		actualPath = 1		
 		path = pathMove	
 		set_process(true)		
 		
 func setSelected(isSelected:bool) -> void :
-	action = Super.ACTIONS.MOVE
-	$selected.visible = isSelected;	
-	Super.menuAction.showSubActions()
-	if !isSelected:
-		$selected/range.hide()
+	if !isEnemy:
+		action = Super.ACTIONS.MOVE
+		$selected.visible = isSelected;	
+		Super.menuAction.showSubActions()
+		if !isSelected:
+			$selected/range.hide()
 	
 func on_click_btn_skill(idSkill) -> void :
 	if self == Super.selectedCharacter:
@@ -116,4 +119,13 @@ func showRange():
 	$selected/range.show()
 	
 func getAtackPos():
-	return $mesh.get_child(0).get_node("posAtaque")						
+	return $mesh.get_child(0).get_node("posAtaque")		
+	
+func getTarget():
+	return $mesh.get_child(0).get_node("target")							
+
+func _on_damageArea_body_entered(body):
+	if body != null && body.get("team") != null &&  body != self && ((isEnemy && body.team == Super.TEAM.PLAYER) || (!isEnemy && body.team == Super.TEAM.ENEMY)):
+		body.queue_free()
+		hp = hp - 1 
+		$ProgBarLIfe.setValue(hp)

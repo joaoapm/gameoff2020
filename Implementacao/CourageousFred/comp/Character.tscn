@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Character.gd" type="Script" id=1]
 [ext_resource path="res://comp/ProgBar.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@ albedo_color = Color( 0.807843, 1, 0.0156863, 1 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.133333, 0.870588, 0.0901961, 0.109804 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1.75632, 3.43205, 1.58868 )
 
 [node name="Character" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -36,11 +39,22 @@ visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
-[node name="mesh" type="Spatial" parent="."]
-
 [node name="ProgBarLIfe" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.44351, -1.63185 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286517, 7.3301, -1.85157 )
+layers = 1
 
 [node name="ProgBarCoolDown" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9729, -3.32518 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9729, -1.7136 )
+layers = 1
 type = 1
+
+[node name="mesh" type="MeshInstance" parent="."]
+layers = 2
+
+[node name="damageArea" type="Area" parent="."]
+transform = Transform( 3.00224, 0, 0, 0, 1.26821, 0, 0, 0, 3.05152, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="damageArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41789, 0 )
+shape = SubResource( 7 )
+[connection signal="body_entered" from="damageArea" to="." method="_on_damageArea_body_entered"]

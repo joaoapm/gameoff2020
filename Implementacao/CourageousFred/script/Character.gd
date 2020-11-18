@@ -88,7 +88,6 @@ func setSelected(isSelected:bool) -> void :
 func on_click_btn_skill(idSkill) -> void :
 	if self == Super.selectedCharacter:
 		skillUtil.process(self,idSkill, null) 
-		$selected/range.show()
 		
 func on_complete_skill(point) -> void :
 	if self == Super.selectedCharacter:
@@ -99,8 +98,11 @@ func resetActions() -> void:
 	Super.idSkillCurrent = null
 	$selected/range.hide()
 	
-func doAtack():
-	atacking = true
+func doAtack(point,block): 
+	if point != null:
+		look_at(point,Vector3(0,1,0))
+	if block:
+		atacking = true
 	player.play("ATAQUE")
 	
 func endAtack():
@@ -108,4 +110,10 @@ func endAtack():
 	player.play("ESPERANDO")	
 	
 func showAtackProgress(time):
-	$ProgBarCoolDown.start(time)				
+	$ProgBarCoolDown.start(time)	
+
+func showRange():
+	$selected/range.show()
+	
+func getAtackPos():
+	return $mesh.get_child(0).get_node("posAtaque")						

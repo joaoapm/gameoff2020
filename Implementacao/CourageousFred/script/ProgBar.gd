@@ -9,11 +9,11 @@ func _ready():
 		$Viewport/ProgBarLife.show()
 
 func start(time):
-	$Viewport/ProgBarCoolDown.value = time
+	$Viewport/ProgBarCoolDown.value = (2 * time)
 	$Viewport/ProgBarCoolDown.show()
 	timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout")  
-	timer.set_wait_time( 1 )
+	timer.set_wait_time(0.5)
 	add_child(timer)  
 	timer.start()  
 

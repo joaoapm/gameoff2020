@@ -6,7 +6,7 @@ func getNavMap() -> Node :
 func _unhandled_input(event): 
 	
 		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed: 
-			var character =  onClickCharacter()
+			var character =  clickedCharacter()
 			
 			if character != null:
 				if Super.selectedCharacter != null:
@@ -32,7 +32,7 @@ func _unhandled_input(event):
 					Super.selectedCharacter.doAction(path)	
 
 
-func onClickCharacter() -> Node :
+func clickedCharacter() -> Node :
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_from = Super.camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + Super.camera.project_ray_normal(mouse_pos) * 1000
@@ -43,16 +43,3 @@ func onClickCharacter() -> Node :
 		return selection.collider
 	else :
 		return null
-		
-func onClickSkill() -> Node :
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_from = Super.camera.project_ray_origin(mouse_pos)
-	var ray_to = ray_from + Super.camera.project_ray_normal(mouse_pos) * 1000
-	var space_state = get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to)
-	
-	if selection.size() > 0:
-		return selection.collider
-	else :
-		return null									
-	

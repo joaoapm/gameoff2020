@@ -7,6 +7,7 @@ func _ready():
 	Super.navMap = $Map.getNavMap()
 	Super.menuAction = $MenuAction
 	Super.charactersNode = $Characters
+	Super.inimigo = $INIMIGO
 	
 	GameHelper.createTimer(self,"coolDownTimer")
 

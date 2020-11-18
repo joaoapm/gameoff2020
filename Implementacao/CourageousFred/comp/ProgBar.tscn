@@ -3,18 +3,18 @@
 [ext_resource path="res://script/ProgBar.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.992157, 1, 0.152941, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.0196078, 0.0392157, 0.152941, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.392157, 1, 0.152941, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.827451, 0.137255, 0.0980392, 1 )
 
-[sub_resource type="ViewportTexture" id=3]
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.992157, 1, 0.152941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0196078, 0.0392157, 0.152941, 1 )
+
+[sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Viewport")
 
 [node name="ProgBar" type="Spatial"]
@@ -27,33 +27,13 @@ keep_3d_linear = true
 render_direct_to_screen = true
 render_target_v_flip = true
 
-[node name="ProgBarCoolDown" type="ProgressBar" parent="Viewport"]
-visible = false
-margin_top = -2.0
-margin_right = 366.0
-margin_bottom = 19.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-max_value = 5.0
-value = 2.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Viewport/ProgBarCoolDown"]
-margin_left = 7.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ProgBarLife" type="ProgressBar" parent="Viewport"]
 visible = false
 margin_top = -2.0
 margin_right = 366.0
-margin_bottom = 19.0
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+margin_bottom = 35.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 max_value = 10.0
 value = 5.0
 percent_visible = false
@@ -67,6 +47,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ProgBarCoolDown" type="ProgressBar" parent="Viewport"]
+visible = false
+margin_top = -2.0
+margin_right = 366.0
+margin_bottom = 36.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 5.0
+value = 2.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Viewport/ProgBarCoolDown"]
+margin_left = 7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
-texture = SubResource( 3 )
+texture = SubResource( 5 )

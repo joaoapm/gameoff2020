@@ -1,18 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Game.gd" type="Script" id=1]
 [ext_resource path="res://comp/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://comp/Character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/MenuActionUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/characters/fred/Fred.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/characters/tower/tower.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/characters/cannon/cannon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://comp/EnemyGenerator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://script/EnemyGenerator.gd" type="Script" id=7]
+[ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.28667e-08, -0.926055, 0.377388, -8.55161e-09, 0.377388, 0.926055, -1, 3.64697e-08, -2.40966e-08, 66.2383, 58.9254, 19.1988 )
+transform = Transform( -2.2727e-08, -0.926055, 0.377388, -8.55161e-09, 0.377388, 0.926055, -1, 1.78192e-08, -1.64962e-08, 66.2383, 58.9254, 19.1988 )
 fov = 72.2
 near = 0.49
 far = 90.5
@@ -31,20 +32,9 @@ margin_top = 1.95178
 margin_right = 2.24487
 margin_bottom = -642.048
 
-[node name="Enemys" type="Spatial" parent="."]
-
-[node name="INIMIGO" parent="Enemys" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-isEnemy = true
-node = ExtResource( 6 )
-
-[node name="INIMIGO2" parent="Enemys" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.99, 0, -13.5752 )
-isEnemy = true
-node = ExtResource( 7 )
-
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 54.9094, 112.668 )
+visible = false
 light_color = Color( 0.890196, 0.772549, 0.313726, 1 )
 light_energy = 3.18
 light_specular = 0.49
@@ -53,3 +43,9 @@ shadow_color = Color( 0.329412, 0.160784, 0.0352941, 1 )
 shadow_bias = 16.0
 omni_range = 424.1
 omni_attenuation = 0.517632
+
+[node name="TransitionUI" parent="." instance=ExtResource( 8 )]
+
+[node name="EnemyGenerator" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 7 )

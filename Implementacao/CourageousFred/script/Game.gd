@@ -1,7 +1,5 @@
 extends Spatial
 
-var IAHelper = preload("res://util/IAHelper.gd").new()
-
 var timer;
  
 func _ready():
@@ -9,11 +7,12 @@ func _ready():
 	Super.navMap = $Map.getNavMap()
 	Super.menuAction = $MenuAction
 	Super.charactersNode = $Characters
-	Super.enemyNode = $Enemys
-	Super.inimigo = $Enemys/INIMIGO
+	Super.enemyNode = $EnemyGenerator   
+	Super.transitionUI = $TransitionUI 
+	
+	$EnemyGenerator.init()
 	
 	GameHelper.createTimer(self,"coolDownTimer")
-	IAHelper.init(self)
 
 func coolDownTimer():
 	for skill in Super.COOLDOWN:

@@ -3,10 +3,10 @@ extends Node
 var camera:Camera
 var navMap:Navigation
 var menuAction:Control
-var idSkillCurrent = null
 var charactersNode
 var enemyNode
 var inimigo
+var transitionUI
 
 var selectedCharacter
 
@@ -16,7 +16,7 @@ enum ACTIONS {MOVE, ATACK}
 
 enum TYPE_PROG_BAR {LIFE, COOLDONW}
 
-enum CHARACTERS  { FRED, DIGGER, GUNSLINGER, DOCTOR, ROCKETER, SMOKER, GRANADIER  }
+enum CHARACTERS  { FRED, DIGGER, GUNSLINGER, DOCTOR, ROCKETER, SMOKER, GRANADIER, TOWER, CANNON  }
 
 enum SKILLS { GER_ESC, GER_PIST, GER_DOC, GER_ROCKT, GER_SMOK, GER_GRANAD, GER_BARRIER, GUNS_SHOT }
  
@@ -30,7 +30,9 @@ const  SKILLS_CHAR = {
 
 const  CHAR_ASSETS = {
 	CHARACTERS.DIGGER :  preload("res://assets/characters/digger/Digger.tscn"),
-	CHARACTERS.GUNSLINGER :  preload("res://assets/characters/gunslinger/gunslinger.tscn") 
+	CHARACTERS.GUNSLINGER :  preload("res://assets/characters/gunslinger/gunslinger.tscn"),
+	CHARACTERS.TOWER :  preload("res://assets/characters/tower/tower.tscn"),
+	CHARACTERS.CANNON :  preload("res://assets/characters/cannon/cannon.tscn") 
 }
 
 var COOLDOWN = []

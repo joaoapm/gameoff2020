@@ -18,6 +18,7 @@ var movSpeed:int = 20
 var turnSpeed:int = 8
 var isDead = false
 
+var idSkillCurrent = null
 var hp:int = 5
  
 export(bool) onready var isEnemy
@@ -96,12 +97,12 @@ func on_click_btn_skill(idSkill) -> void :
 		
 func on_complete_skill(point) -> void :
 	if self == Super.selectedCharacter:
-		skillUtil.process(self,Super.idSkillCurrent,point)	
+		skillUtil.process(self,idSkillCurrent,point)	
 		$selected/range.hide()	
 		set_process(false)
 
 func resetActions() -> void:
-	Super.idSkillCurrent = null
+	idSkillCurrent = null
 	$selected/range.hide()
 	
 func doAtack(point,block): 
@@ -134,11 +135,15 @@ func _on_damageArea_body_entered(body):
 		$ProgBarLIfe.setValue(hp)
 		if hp == 0:
 			if atacking:
-				Super.idSkillCurrent = null
+				idSkillCurrent = null
 			Super.menuAction.hide()
 			set_process(false)
 			isDead = true
 			player.play("MORTO")
 			yield(get_tree().create_timer(1.0), "timeout")
 			queue_free()
+			if idChar == Super.CHARACTERS.FRED:
+				Super.transitionUI.fadein_transition("res://scenes/EngGame.tscn")
+			if isEnemy:
+				Super.enemyNode.verifyEndLevel()	
 			

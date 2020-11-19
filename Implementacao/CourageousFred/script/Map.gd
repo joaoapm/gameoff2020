@@ -19,7 +19,7 @@ func _unhandled_input(event):
 				var to = from + Super.camera.project_ray_normal(event.position)*1000
 				var p = Super.navMap.get_closest_point_to_segment(from, to)
 				var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
-				if Super.idSkillCurrent != null && distanceRange <= 10: 
+				if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= 10: 
 					Super.emit_signal("on_complete_skill",p)
 				else :
 								

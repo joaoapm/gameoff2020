@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="EnemyGenerator" type="Spatial"]
+
+[node name="p1" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3132, 1.42067, -45.4045 )
+
+[node name="p2" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4698, 1.42067, -38.6212 )
+
+[node name="p3" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3573, 1.42067, -37.8036 )
+
+[node name="p4" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0846, 1.42067, -42.7187 )
+
+[node name="p5" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3164, 1.42067, 40.0462 )
+
+[node name="enemies" type="Spatial" parent="."]

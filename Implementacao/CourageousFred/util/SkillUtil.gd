@@ -10,7 +10,7 @@ func process(character,id, point) -> void:
  
 func GER_CHAR(character,point,id) -> void :
 	if point == null :
-		Super.idSkillCurrent = id 
+		character.idSkillCurrent = id 
 		character.showRange()
 	else:
 		var persoGer
@@ -27,13 +27,13 @@ func GER_CHAR(character,point,id) -> void :
 		elif id ==  Super.SKILLS.GER_GRANAD : 
 			persoGer = Super.CHARACTERS.GRANADIER
 
-		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 10, "character": character})
+		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 10, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true)
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
 		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		if Super.idSkillCurrent != null:
-			Super.idSkillCurrent = null
+		if character.idSkillCurrent != null:
+			character.idSkillCurrent = null
 			character.endAtack()
 			var characterAdd = load("res://comp/Character.tscn").instance()	
 			characterAdd.init(persoGer,point)
@@ -41,17 +41,17 @@ func GER_CHAR(character,point,id) -> void :
 
 func GER_BARRIER(character,point,id) :
 	if point == null :
-		Super.idSkillCurrent = id 
+		character.idSkillCurrent = id 
 		character.showRange()
 	else:	
-		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 10, "character": character})
+		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 10, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true)
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
 		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		if Super.idSkillCurrent != null:
+		if character.idSkillCurrent != null:
 			character.endAtack() 
-			Super.idSkillCurrent = null
+			character.idSkillCurrent = null
 			var barrierAdd = load("res://comp/Barrier.tscn").instance()
 			barrierAdd.init(point)	
 			Super.charactersNode.add_child(barrierAdd)
@@ -60,8 +60,9 @@ func GUNS_SHOT(character,point,id) :
 	Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
 	Super.menuAction.showSubActions()
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()
-	bulledAdd.init(character,Super.enemyNode.get_child(0),Super.TEAM.PLAYER,false)
-	character.doAtack(Super.enemyNode.get_child(0).get_global_transform().origin, false)
+	var enemy = Super.enemyNode.getRandomEnemy()
+	bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false)
+	character.doAtack(enemy.get_global_transform().origin, false)
 	
 func IA_SHOT(character,target) :  
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()

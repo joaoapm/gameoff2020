@@ -11,7 +11,7 @@ func showSubActions() -> void:
 
 func unPress():
 	for child in $SubActions.get_children():
-		if child.id != Super.idSkillCurrent:
+		if child.id != Super.selectedCharacter.idSkillCurrent:
 			child.pressed = false
 			break
 

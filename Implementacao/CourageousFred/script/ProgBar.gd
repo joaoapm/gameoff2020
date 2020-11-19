@@ -27,3 +27,6 @@ func _on_timer_timeout():
 
 func setValue(value):
 	$Viewport/ProgBarLife.value = value
+
+func setValueMax(value):
+	$Viewport/ProgBarLife.max_value = value

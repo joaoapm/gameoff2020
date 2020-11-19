@@ -1,14 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/characters/digger/pile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/Barrier.gd" type="Script" id=2]
 [ext_resource path="res://comp/ProgBar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 7.60065, 7.51295, 4.35747 )
 
 [node name="Barrier" type="Spatial"]
 transform = Transform( 0.817677, 0, 0, 0, 0.817677, 0, 0, 0, 0.817677, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="pile" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1.50636, 0, 0, 0, 1, 0, -0.973125, 0 )
 
 [node name="ProgBar" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.70189, 0 )
+
+[node name="areaBullet" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="areaBullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.30088, 0 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="areaBullet" to="." method="_on_areaBullet_body_entered"]

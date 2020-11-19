@@ -2,7 +2,7 @@
 
 [ext_resource path="res://script/ProgBar.gd" type="Script" id=1]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0470588, 0.945098, 0.101961, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -11,7 +11,7 @@ border_width_bottom = 4
 border_color = Color( 1, 0.611765, 0.0470588, 1 )
 corner_detail = 11
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.945098, 0.2, 0.0470588, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -20,16 +20,16 @@ border_width_bottom = 4
 border_color = Color( 1, 0.611765, 0.0470588, 1 )
 corner_detail = 11
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0196078, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.0196078, 0.0392157, 0.152941, 1 )
 
-[sub_resource type="ViewportTexture" id=8]
+[sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 resource_local_to_scene = true
 flags_transparent = true
 flags_no_depth_test = true
@@ -42,9 +42,9 @@ params_depth_draw_mode = 2
 params_billboard_mode = 1
 params_grow = true
 params_grow_amount = 0.0
-albedo_texture = SubResource( 8 )
+albedo_texture = SubResource( 5 )
 
-[sub_resource type="ViewportTexture" id=9]
+[sub_resource type="ViewportTexture" id=7]
 viewport_path = NodePath("Viewport")
 
 [node name="ProgBar" type="MeshInstance"]
@@ -63,8 +63,8 @@ visible = false
 margin_top = -2.0
 margin_right = 622.0
 margin_bottom = 83.0
-custom_styles/fg = SubResource( 10 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 max_value = 10.0
 value = 10.0
 percent_visible = false
@@ -83,8 +83,8 @@ visible = false
 margin_top = -2.0
 margin_right = 366.0
 margin_bottom = 36.0
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 max_value = 5.0
 value = 5.0
 percent_visible = false
@@ -99,6 +99,6 @@ __meta__ = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-material_override = SubResource( 7 )
+material_override = SubResource( 6 )
 billboard = 1
-texture = SubResource( 9 )
+texture = SubResource( 7 )

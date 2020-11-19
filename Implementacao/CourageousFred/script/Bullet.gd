@@ -10,12 +10,12 @@ func _physics_process(delta):
 		var dir
 		if _canDodge:
 			dir = (target - get_global_transform().origin).normalized()
-			global_translate(dir*(150 * delta))	  
+			global_translate(dir*(100 * delta))	  
 			if  get_global_transform().origin.distance_to(target) <= 1.7:
 				queue_free()
 		else:
 			dir = (target.get_global_transform().origin  - get_global_transform().origin).normalized()	
-			global_translate(dir*(150 * delta))	  
+			global_translate(dir*(100 * delta))	  
 			if  get_global_transform().origin.distance_to(target.get_global_transform().origin) <= 1.7:
 				queue_free()
   

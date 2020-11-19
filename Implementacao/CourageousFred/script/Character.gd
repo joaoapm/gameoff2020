@@ -16,8 +16,9 @@ var actualPath:int
 var changePath:bool 
 var movSpeed:int = 20
 var turnSpeed:int = 8
+var isDead = false
 
-var hp:int = 10
+var hp:int = 5
  
 export(bool) onready var isEnemy
 export(Resource) onready var node
@@ -29,14 +30,15 @@ func _ready():
 	if node != null:
 		self.get_node("mesh").add_child(node.instance())
 		player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
+		$ProgBarLIfe.setValueMax(hp)
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
 	idChar = character
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
-	transform.origin = point
-	$mesh.set_layer_mask_bit(3,true)
+	transform.origin = point 
+	$ProgBarLIfe.setValueMax(hp)
 	
 func _process(delta):
 
@@ -66,15 +68,15 @@ func _process(delta):
 			player.play("ESPERANDO")
 
 func setAction(newAction) -> void:
-	if !atacking && !isEnemy:
+	if !atacking && !isEnemy && !isDead:
 		action = newAction 
 	
 func doAction(pathMove) -> void:
-	if !isEnemy && action == Super.ACTIONS.MOVE && !atacking:
+	if !isEnemy && action == Super.ACTIONS.MOVE && !atacking && !isDead:
 		move(pathMove) 
 	 
 func move(pathMove): 
-	if !isEnemy && !actionChanged:
+	if !isEnemy && !actionChanged && !isDead:
 		changePath = true 
 		actualPath = 1		
 		path = pathMove	
@@ -96,6 +98,7 @@ func on_complete_skill(point) -> void :
 	if self == Super.selectedCharacter:
 		skillUtil.process(self,Super.idSkillCurrent,point)	
 		$selected/range.hide()	
+		set_process(false)
 
 func resetActions() -> void:
 	Super.idSkillCurrent = null
@@ -129,3 +132,13 @@ func _on_damageArea_body_entered(body):
 		body.queue_free()
 		hp = hp - 1 
 		$ProgBarLIfe.setValue(hp)
+		if hp == 0:
+			if atacking:
+				Super.idSkillCurrent = null
+			Super.menuAction.hide()
+			set_process(false)
+			isDead = true
+			player.play("MORTO")
+			yield(get_tree().create_timer(1.0), "timeout")
+			queue_free()
+			

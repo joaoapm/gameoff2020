@@ -13,7 +13,7 @@ func _ready():
 	Super.inimigo = $Enemys/INIMIGO
 	
 	GameHelper.createTimer(self,"coolDownTimer")
-	#IAHelper.init(self)
+	IAHelper.init(self)
 
 func coolDownTimer():
 	for skill in Super.COOLDOWN:

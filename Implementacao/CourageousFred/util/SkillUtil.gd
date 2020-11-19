@@ -29,14 +29,15 @@ func GER_CHAR(character,point,id) -> void :
 
 		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 10, "character": character})
 		Super.menuAction.showSubActions()
-		Super.idSkillCurrent = null
 		character.doAtack(point,true)
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
 		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		character.endAtack()
-		var characterAdd = load("res://comp/Character.tscn").instance()	
-		characterAdd.init(persoGer,point)
-		Super.charactersNode.add_child(characterAdd)
+		if Super.idSkillCurrent != null:
+			Super.idSkillCurrent = null
+			character.endAtack()
+			var characterAdd = load("res://comp/Character.tscn").instance()	
+			characterAdd.init(persoGer,point)
+			Super.charactersNode.add_child(characterAdd)
 
 func GER_BARRIER(character,point,id) :
 	if point == null :
@@ -45,25 +46,25 @@ func GER_BARRIER(character,point,id) :
 	else:	
 		Super.COOLDOWN.append({"id": Super.idSkillCurrent, "time" : 10, "character": character})
 		Super.menuAction.showSubActions()
-		Super.idSkillCurrent = null
 		character.doAtack(point,true)
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
 		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		character.endAtack() 
-		
-		var barrierAdd = load("res://comp/Barrier.tscn").instance()
-		barrierAdd.init(point)	
-		Super.charactersNode.add_child(barrierAdd)
+		if Super.idSkillCurrent != null:
+			character.endAtack() 
+			Super.idSkillCurrent = null
+			var barrierAdd = load("res://comp/Barrier.tscn").instance()
+			barrierAdd.init(point)	
+			Super.charactersNode.add_child(barrierAdd)
 
 func GUNS_SHOT(character,point,id) :
 	Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
 	Super.menuAction.showSubActions()
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()
-	bulledAdd.init(character,Super.enemyNode.get_child(0),Super.TEAM.PLAYER,true)
+	bulledAdd.init(character,Super.enemyNode.get_child(0),Super.TEAM.PLAYER,false)
 	character.doAtack(Super.enemyNode.get_child(0).get_global_transform().origin, false)
 	
 func IA_SHOT(character,target) :  
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()
-	bulledAdd.init(character,target,Super.TEAM.ENEMY,false)
+	bulledAdd.init(character,target,Super.TEAM.ENEMY,true)
 	character.doAtack(target.get_global_transform().origin, false)
 	

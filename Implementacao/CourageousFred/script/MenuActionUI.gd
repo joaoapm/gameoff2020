@@ -14,4 +14,7 @@ func unPress():
 		if child.id != Super.idSkillCurrent:
 			child.pressed = false
 			break
-	
+
+func hide():
+	for child in $SubActions.get_children():
+		child.queue_free() 	

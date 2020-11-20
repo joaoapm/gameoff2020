@@ -19,7 +19,8 @@ func _physics_process(delta):
 				
 	if target != null:   
 		var	dir = (target.get_global_transform().origin  - get_global_transform().origin).normalized()	
-		global_translate(dir*(100 * delta))	  
+		global_translate(dir*(100 * delta))	 
+		$bullet.look_at(dir, Vector3.UP) 
  
 func init(charShot,targetChar,teamBullet,canDodge, typeBullet):
 	

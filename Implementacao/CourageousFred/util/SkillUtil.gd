@@ -67,7 +67,6 @@ func GUNS_SHOT(character,point,id) :
 	
 func IA_SHOT(character,target) :  
 	var bulledAdd = load("res://comp/Bullet.tscn").instance() 
-	character.doAtack(target.get_global_transform().origin, false)
-	
+	character.doAtack(target.get_global_transform().origin, false) 
 	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet)
 

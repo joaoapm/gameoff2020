@@ -49,7 +49,7 @@ func GER_BARRIER(character,point,id) :
 		character.doAtack(point,true)
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
 		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		if character.idSkillCurrent != null:
+		if character != null && character.idSkillCurrent != null:
 			character.endAtack() 
 			character.idSkillCurrent = null
 			var barrierAdd = load("res://comp/Barrier.tscn").instance()

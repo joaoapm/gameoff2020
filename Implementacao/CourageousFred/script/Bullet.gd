@@ -22,7 +22,7 @@ func _physics_process(delta):
 func init(charShot,targetChar,teamBullet,canDodge):
 	_canDodge = canDodge
 	team = teamBullet
-	Super.charactersNode.add_child(self)
+	Super.charactersNode.get_parent().add_child(self)
 	transform = charShot.getAtackPos().global_transform 
 	if canDodge:
 		target = targetChar.get_global_transform().origin 

@@ -2,7 +2,8 @@ extends Spatial
 
 var skillUtil = preload("res://util/SkillUtil.gd").new()
 
-var idChar = Super.CHARACTERS.FRED
+var idChar = Super.CHARACTERS.FRED 
+var hp:int = 15
 
 var action
 var actionChanged
@@ -17,9 +18,9 @@ var changePath:bool
 var movSpeed:int = 20
 var turnSpeed:int = 8
 var isDead = false
+var enemyPlace 
 
 var idSkillCurrent = null
-var hp:int = 5
  
 export(bool) onready var isEnemy
 export(Resource) onready var node
@@ -35,6 +36,7 @@ func _ready():
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
+	hp = 5
 	idChar = character
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
@@ -135,8 +137,7 @@ func _on_damageArea_body_entered(body):
 		$ProgBarLIfe.setValue(hp)
 		if hp == 0:
 			if atacking:
-				idSkillCurrent = null
-			Super.menuAction.hide()
+				idSkillCurrent = null 
 			set_process(false)
 			isDead = true
 			player.play("MORTO")
@@ -145,5 +146,7 @@ func _on_damageArea_body_entered(body):
 			if idChar == Super.CHARACTERS.FRED:
 				Super.transitionUI.fadein_transition("res://scenes/EngGame.tscn")
 			if isEnemy:
-				Super.enemyNode.verifyEndLevel()	
+				Super.enemyNode.verifyEndLevel(self)	
+			else:
+				Super.menuAction.hide()	
 			

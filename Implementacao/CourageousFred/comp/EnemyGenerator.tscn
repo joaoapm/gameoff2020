@@ -6,13 +6,25 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3132, 1.42067, -45.4045 )
 
 [node name="p2" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4698, 1.42067, -38.6212 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4137, 1.42067, -38.6212 )
 
 [node name="p3" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3573, 1.42067, -37.8036 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0911, 1.42067, -37.8036 )
 
 [node name="p4" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0846, 1.42067, -42.7187 )
+
+[node name="p6" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9408, 1.42067, -38.3299 )
+
+[node name="p7" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4698, 1.42067, -31.5466 )
+
+[node name="p8" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3573, 1.42067, -30.729 )
+
+[node name="p9" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75111, 1.42067, -35.6441 )
 
 [node name="p5" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3164, 1.42067, 40.0462 )

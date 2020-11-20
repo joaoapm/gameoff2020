@@ -14,7 +14,7 @@ func charBySkill(idSkill:int) :
 	return -1	
 	
 func processCoolDown(node):
-	GameHelper.createTimer(node,"coolDownTimer")
+	GameHelper.createTimer(self,"coolDownTimer")
 
 func coolDownTimer():
 	for skill in Super.COOLDOWN:

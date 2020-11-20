@@ -16,6 +16,6 @@ transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 navmesh = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 53.3201, 0, 0, 0, 1, 0, 0, 0, 186.766, 0, 0, 0 )
+transform = Transform( 76.804, 0, 0, 0, 1, 0, 0, 0, 269.066, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )

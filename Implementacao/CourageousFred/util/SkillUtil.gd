@@ -62,12 +62,12 @@ func GUNS_SHOT(character,point,id) :
 	var bulledAdd = load("res://comp/Bullet.tscn").instance()
 	var enemy = Super.enemyNode.getRandomEnemy()
 	if enemy != null:
-		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false)
+		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET)
 		character.doAtack(enemy.get_global_transform().origin, false)
 	
 func IA_SHOT(character,target) :  
 	var bulledAdd = load("res://comp/Bullet.tscn").instance() 
 	character.doAtack(target.get_global_transform().origin, false)
 	
-	bulledAdd.init(character,target,Super.TEAM.ENEMY,true)
+	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet)
 

@@ -19,6 +19,8 @@ var movSpeed:int = 20
 var turnSpeed:int = 8
 var isDead = false
 var enemyPlace 
+var typeBullet
+var canDodge = false
 
 var idSkillCurrent = null
  

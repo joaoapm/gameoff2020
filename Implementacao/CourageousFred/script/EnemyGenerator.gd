@@ -36,9 +36,21 @@ func spawEnemy():
 	var place = getRandomPlace()
 	if place != null:
 		places.erase(place)
+		
 		var characterAdd = load("res://comp/Character.tscn").instance()	
 		characterAdd.isEnemy = true
-		characterAdd.init(Super.CHARACTERS.TOWER,place.transform.origin) 
+		
+		randomize() 
+		var random = rand_range(0, 150)
+		if random < 50: 
+			characterAdd.init(Super.CHARACTERS.TOWER,place.transform.origin) 
+			characterAdd.typeBullet = Super.TYPE_BULLET.ROCKET
+			characterAdd.canDodge = false
+		else:
+			characterAdd.init(Super.CHARACTERS.CANNON,place.transform.origin) 
+			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
+			characterAdd.canDodge = true
+				
 		characterAdd.enemyPlace = place
 		$enemies.add_child(characterAdd)	
 		characterAdd.look_at($p5.transform.origin, Vector3(0,1,0))

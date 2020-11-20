@@ -21,7 +21,13 @@ func _physics_process(delta):
 		var	dir = (target.get_global_transform().origin  - get_global_transform().origin).normalized()	
 		global_translate(dir*(100 * delta))	  
  
-func init(charShot,targetChar,teamBullet,canDodge):
+func init(charShot,targetChar,teamBullet,canDodge, typeBullet):
+	
+	if typeBullet == Super.TYPE_BULLET.BULLET:
+		$bullet.show()
+	elif typeBullet == Super.TYPE_BULLET.ROCKET:
+		$rocket.show()
+			
 	_canDodge = canDodge
 	team = teamBullet
 	Super.charactersNode.get_parent().add_child(self)

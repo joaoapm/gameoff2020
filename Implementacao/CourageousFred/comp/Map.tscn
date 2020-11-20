@@ -6,6 +6,6 @@
 [node name="Map" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="Mesh" type="Spatial" parent="."]
+[node name="Mesh" type="MeshInstance" parent="."]
 
 [node name="Map1" parent="Mesh" instance=ExtResource( 2 )]

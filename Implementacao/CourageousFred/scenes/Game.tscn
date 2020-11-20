@@ -24,15 +24,15 @@ transform = Transform( 0.248745, -0.620503, 0.743708, -0.00494795, 0.767019, 0.6
 near = 0.5
 far = 186.7
 
-[node name="Characters" type="Spatial" parent="."]
+[node name="Characters" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.81627, 0 )
+layers = 2
 
 [node name="Character" parent="Characters" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30226, 2.81409, 88.0391 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30226, -1.93954, 88.0391 )
 node = ExtResource( 5 )
 
 [node name="Map" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.391907, 0, 3.10249 )
 
 [node name="MenuAction" parent="." instance=ExtResource( 4 )]
 margin_left = 2.24493
@@ -40,9 +40,21 @@ margin_top = 1.95178
 margin_right = 2.24487
 margin_bottom = -642.048
 
-[node name="OmniLight2" type="OmniLight" parent="."]
+[node name="charLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999835, -0.0181504, 0, 0.0181504, 0.999835, 45.963, 57.7177, 22.949 )
+layers = 2
+light_color = Color( 0.831373, 0.607843, 0.352941, 1 )
+light_energy = 8.42
+light_indirect_energy = 2.02
+light_cull_mask = 2146435074
+shadow_enabled = true
+shadow_contact = 0.73
+omni_range = 384.0
+omni_attenuation = 0.732042
+
+[node name="OmniLight3" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999835, -0.0181504, 0, 0.0181504, 0.999835, 0, 101.386, 1.33975 )
-light_color = Color( 0.941176, 0.847059, 0.72549, 1 )
+light_color = Color( 0.862745, 0.670588, 0.529412, 1 )
 light_energy = 2.89
 omni_range = 147.1
 omni_attenuation = 0.554784
@@ -50,5 +62,5 @@ omni_attenuation = 0.554784
 [node name="TransitionUI" parent="." instance=ExtResource( 8 )]
 
 [node name="EnemyGenerator" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.998359, 0, -0.0572676, 0, 1, 0, 0.0572676, 0, 0.998359, -43.061, 0, -16.2516 )
+transform = Transform( 0.998359, 0, -0.0572676, 0, 1, 0, 0.0572676, 0, 0.998359, -43.061, -4.30416, -16.2516 )
 script = ExtResource( 7 )

@@ -111,6 +111,7 @@ bones/0/bound_children = [  ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0 )
 
 [node name="ZBrush_defualt_group" type="MeshInstance" parent="Armature"]
+layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null

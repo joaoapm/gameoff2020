@@ -60,6 +60,7 @@ bones/0/enabled = true
 bones/0/bound_children = [  ]
 
 [node name="Group10022" type="MeshInstance" parent="Armature/Skeleton"]
+layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null

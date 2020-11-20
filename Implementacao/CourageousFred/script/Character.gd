@@ -79,7 +79,7 @@ func doAction(pathMove) -> void:
 		move(pathMove) 
 	 
 func move(pathMove): 
-	if !isEnemy && !actionChanged && !isDead:
+	if !atacking && !isEnemy && !actionChanged && !isDead:
 		changePath = true 
 		actualPath = 1		
 		path = pathMove	
@@ -94,11 +94,11 @@ func setSelected(isSelected:bool) -> void :
 			$selected/range.hide()
 	
 func on_click_btn_skill(idSkill) -> void :
-	if self == Super.selectedCharacter:
+	if !atacking && self == Super.selectedCharacter:
 		skillUtil.process(self,idSkill, null) 
 		
 func on_complete_skill(point) -> void :
-	if self == Super.selectedCharacter:
+	if !atacking && self == Super.selectedCharacter:
 		skillUtil.process(self,idSkillCurrent,point)	
 		$selected/range.hide()	
 		set_process(false)
@@ -108,11 +108,12 @@ func resetActions() -> void:
 	$selected/range.hide()
 	
 func doAtack(point,block): 
-	if point != null:
-		look_at(point,Vector3(0,1,0))
-	if block:
-		atacking = true
-	player.play("ATAQUE")
+	if !atacking:
+		if point != null:
+			look_at(point,Vector3(0,1,0))
+		if block:
+			atacking = true
+		player.play("ATAQUE")
 	
 func endAtack():
 	atacking = false

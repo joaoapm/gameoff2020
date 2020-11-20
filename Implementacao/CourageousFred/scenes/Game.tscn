@@ -14,14 +14,13 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.305745, -0.798301, 0.518878, -4.12022e-09, 0.544976, 0.838452, -0.952113, -0.256353, 0.166624, 80.4515, 64.4118, 19.1988 )
-fov = 72.2
-near = 0.49
-far = 149.3
+near = 0.5
+far = 140.0
 
 [node name="Characters" type="Spatial" parent="."]
 
 [node name="Character" parent="Characters" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7703, 2.81409, 80.3408 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7703, 2.81409, 49.6445 )
 node = ExtResource( 5 )
 
 [node name="Map" parent="." instance=ExtResource( 2 )]
@@ -34,6 +33,7 @@ margin_bottom = -642.048
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 54.9094, 112.668 )
+visible = false
 light_color = Color( 0.890196, 0.772549, 0.313726, 1 )
 light_energy = 3.18
 light_specular = 0.49

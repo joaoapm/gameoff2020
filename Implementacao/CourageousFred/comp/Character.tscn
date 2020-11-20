@@ -52,7 +52,7 @@ type = 1
 layers = 2
 
 [node name="damageArea" type="Area" parent="."]
-transform = Transform( 3.00224, 0, 0, 0, 1.26821, 0, 0, 0, 3.05152, 0, 0, 0 )
+transform = Transform( 1.13468, 0, 0, 0, 1.26821, 0, 0, 0, 0.983276, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="damageArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41789, 0 )

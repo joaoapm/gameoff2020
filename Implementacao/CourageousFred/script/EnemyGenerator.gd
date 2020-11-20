@@ -28,7 +28,7 @@ func init():
 	timerAtack.connect("timeout",self,"atack") 
 	timerAtack.set_wait_time(2)
 	add_child(timerAtack) 
-	#timerAtack.start() 	
+	timerAtack.start() 	
  
 func spawEnemy():
 	if Super.level == 1 && $enemies.get_child_count() == maxLvl1 || Super.level == 2 && $enemies.get_child_count() == maxLvl2 || Super.level == 3 && $enemies.get_child_count() == maxLvl3:

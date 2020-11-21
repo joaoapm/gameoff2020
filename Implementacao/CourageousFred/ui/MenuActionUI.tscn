@@ -13,6 +13,7 @@ __meta__ = {
 }
 
 [node name="SubActions" type="HBoxContainer" parent="."]
+light_mask = 2
 anchor_right = 0.258
 anchor_bottom = 0.353
 margin_left = 478.325

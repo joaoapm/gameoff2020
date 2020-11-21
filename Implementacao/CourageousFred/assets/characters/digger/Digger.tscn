@@ -1704,7 +1704,7 @@ tracks/41/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-1
 transform = Transform( -0.640191, 0, -5.59673e-08, 0, 0.640191, 0, 5.59673e-08, 0, -0.640191, 0, 0, 0 )
 
 [node name="Armature001" type="Spatial" parent="."]
-transform = Transform( 0.927422, 0, 0, 0, 0.927422, 0, 0, 0, 0.927422, 0.00670141, 3.60856, -0.914766 )
+transform = Transform( 1.45863, 0, -4.26326e-14, 0, 1.45863, 0, 4.26326e-14, 0, 1.45863, 0.00670141, 5.58279, -0.914765 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature001"]
 bones/0/name = "geral"
@@ -1919,26 +1919,31 @@ bones/41/enabled = true
 bones/41/bound_children = [  ]
 
 [node name="ZBrush_defualt_group" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group1" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 3 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group2" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 4 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group3" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 5 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group4" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 6 )
 skin = SubResource( 2 )
 material/0 = null

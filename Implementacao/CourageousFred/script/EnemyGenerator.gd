@@ -2,18 +2,20 @@ extends Spatial
  
 var skillUtil = preload("res://util/SkillUtil.gd").new()
 
-var nbLevel1 = 15;
+var nbLevel1 = 1;
 var maxLvl1 = 3
 
-var nbLevel2 = 2;
+var nbLevel2 = 1;
 var maxLvl2 = 6
 
-var nbLevel3 = 3
+var nbLevel3 = 1
 var maxLvl3 = 9
 
-var places = [$p1,$p2,$p3,$p4,$p6,$p7,$p8,$p9]
+var places = []
 
 func init():
+	
+	places = [$p1,$p2,$p3,$p4,$p6,$p7,$p8,$p9]
 	
 	spawEnemy()
 	spawEnemy()
@@ -96,16 +98,16 @@ func verifyEndLevel(deadEnemy):
 		nbLevel1 = nbLevel1 -1; 
 		if  nbLevel1 == 0:
 			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
-			Super.level += 1
+			Super.level  = 2
 
 	elif Super.level == 2:
 		nbLevel2 = nbLevel2 -1; 
 		if  nbLevel2 == 0:
 			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
-			Super.level += 1		
+			Super.level = 3		
 	
 	elif Super.level == 3:
 		nbLevel3 = nbLevel3 -1; 
 		if  nbLevel3 == 0:
 			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
-			Super.level += 1
+			Super.level = 4

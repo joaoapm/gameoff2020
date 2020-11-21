@@ -1,7 +1,32 @@
 extends Spatial
- 
+
+var level
+var currentMap
+
+func _ready():
+	for child in get_children():
+		child.queue_free() 
+	if Super.level == 1:
+		currentMap = load("res://assets/maps/map1/Map1.tscn").instance()	
+		add_child(currentMap)
+	elif Super.level == 2:
+		currentMap = load("res://assets/maps/map2/Map2.tscn").instance()	
+		add_child(currentMap)
+	elif Super.level == 3:
+		currentMap = load("res://assets/maps/map3/Map3.tscn").instance()	
+		add_child(currentMap)
+		
 func getNavMap() -> Node :
-	return $Mesh/Map1
+	return currentMap  
+
+func getEnemyGenerator() -> Node :
+	return currentMap.get_node("EnemyGenerator") 
+		
+func getCamera() -> Node :
+	return currentMap.get_node("Camera") 
+	
+func getCharactersNode() -> Node :
+	return currentMap.get_node("Characters") 
 
 func _unhandled_input(event): 
 	

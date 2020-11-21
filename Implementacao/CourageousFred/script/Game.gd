@@ -1,12 +1,14 @@
 extends Spatial
 
 func _ready():
-	Super.camera = $Camera
+	Super.camera = $Map.getCamera()
 	Super.navMap = $Map.getNavMap()
-	Super.menuAction = $MenuAction
-	Super.charactersNode = $Characters
-	Super.enemyNode = $EnemyGenerator   
-	Super.transitionUI = $TransitionUI 
-	GameHelper.processCoolDown(self)
+	Super.enemyNode = $Map.getEnemyGenerator()
+	Super.charactersNode = $Map.getCharactersNode()
 	
-	$EnemyGenerator.init() 
+	Super.menuAction = $MenuAction
+	Super.transitionUI = $TransitionUI 
+	
+	GameHelper.processCoolDown(self)
+	 
+	Super.enemyNode.init() 

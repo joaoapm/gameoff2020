@@ -1643,7 +1643,7 @@ tracks/41/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-1
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="Armature001" type="Spatial" parent="."]
-transform = Transform( 0.359928, 0, 0, 0, 0.359928, 0, 0, 0, 0.359928, -0.0113898, 1.39243, 0.00369642 )
+transform = Transform( 0.47053, 0, 0, 0, 0.47053, 0, 0, 0, 0.47053, -0.0113898, 1.78324, 0.00369642 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature001"]
 bones/0/name = "geral"
@@ -1858,6 +1858,7 @@ bones/41/enabled = true
 bones/41/bound_children = [  ]
 
 [node name="Group15999" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null

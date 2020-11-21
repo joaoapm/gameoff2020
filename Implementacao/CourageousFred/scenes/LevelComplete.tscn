@@ -10,11 +10,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 695.927
-margin_top = 354.698
-margin_right = 762.927
-margin_bottom = 368.698
+margin_left = 601.492
+margin_top = 151.573
+margin_right = 697.492
+margin_bottom = 165.573
 text = "level complete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nextLevel" type="Button" parent="."]
+margin_left = 477.508
+margin_top = 519.631
+margin_right = 863.508
+margin_bottom = 667.631
+text = "next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -23,3 +33,4 @@ __meta__ = {
 margin_right = 1285.0
 margin_bottom = 717.0
 rect_min_size = Vector2( 100, 0 )
+[connection signal="button_up" from="nextLevel" to="." method="_on_nextLevel_button_up"]

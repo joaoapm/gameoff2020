@@ -38,7 +38,7 @@ func _ready():
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
-	hp = 5
+	hp = 1
 	idChar = character
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")

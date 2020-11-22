@@ -35,16 +35,26 @@ func _unhandled_input(event):
 			
 			if character != null:
 				if Super.selectedCharacter != null:
-					Super.selectedCharacter.setSelected(false)
-				Super.selectedCharacter	 = character
-				Super.selectedCharacter.setSelected(true)	
+					var from = Super.camera.project_ray_origin(event.position)	 
+					var to = from + Super.camera.project_ray_normal(event.position)*1000
+					var p = Super.navMap.get_closest_point_to_segment(from, to)
+					var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
+					if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= Super.selectedCharacter.rangeSkillCurrent && Super.selectedCharacter.isCharTargetSkillCurrent == true: 
+						Super.emit_signal("on_complete_skill",p)
+					else:	
+						Super.selectedCharacter.setSelected(false)	
+						Super.selectedCharacter	 = character
+						Super.selectedCharacter.setSelected(true)	
+				else:		
+					Super.selectedCharacter	 = character
+					Super.selectedCharacter.setSelected(true)	
 				
 			elif Super.selectedCharacter != null:
 				var from = Super.camera.project_ray_origin(event.position)	 
 				var to = from + Super.camera.project_ray_normal(event.position)*1000
 				var p = Super.navMap.get_closest_point_to_segment(from, to)
 				var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
-				if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= 10: 
+				if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= 10 && Super.selectedCharacter.isCharTargetSkillCurrent == false: 
 					Super.emit_signal("on_complete_skill",p)
 				else :
 								

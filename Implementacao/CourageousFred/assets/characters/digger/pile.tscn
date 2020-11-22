@@ -20,6 +20,6 @@ surfaces/0 = {
 [node name="pile" type="Spatial"]
 
 [node name="Pile" type="MeshInstance" parent="."]
-transform = Transform( 4.22629, 0, 0, 0, -5.03812e-07, -4.22628, 0, 4.22628, -5.03812e-07, 0, 0, 0 )
+transform = Transform( 6.53483, 0, 0, 0, -7.79011e-07, -6.53481, 0, 4.22628, -5.03812e-07, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )

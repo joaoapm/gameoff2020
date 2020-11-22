@@ -23,6 +23,8 @@ var typeBullet
 var canDodge = false
 
 var idSkillCurrent = null
+var isCharTargetSkillCurrent = false
+var  rangeSkillCurrent = 0
  
 export(bool) onready var isEnemy
 export(Resource) onready var node
@@ -94,6 +96,7 @@ func setSelected(isSelected:bool) -> void :
 		Super.menuAction.showSubActions()
 		if !isSelected:
 			$selected/range.hide()
+			rangeSkillCurrent = 0
 	
 func on_click_btn_skill(idSkill) -> void :
 	if !atacking && self == Super.selectedCharacter:
@@ -103,11 +106,13 @@ func on_complete_skill(point) -> void :
 	if !atacking && self == Super.selectedCharacter:
 		skillUtil.process(self,idSkillCurrent,point)	
 		$selected/range.hide()	
+		rangeSkillCurrent = 0
 		set_process(false)
 
 func resetActions() -> void:
 	idSkillCurrent = null
 	$selected/range.hide()
+	rangeSkillCurrent = 0
 	
 func doAtack(point,block): 
 	if !atacking:
@@ -124,8 +129,13 @@ func endAtack():
 func showAtackProgress(time):
 	$ProgBarCoolDown.start(time)	
 
-func showRange():
-	$selected/range.show()
+func showRange(size):
+	if size == 1:
+		$selected/range.show()
+		rangeSkillCurrent = 10
+	elif size == 2:
+		rangeSkillCurrent = 20
+		$selected/range2.show()	
 	
 func getAtackPos():
 	return $mesh.get_child(0).get_node("posAtaque")		

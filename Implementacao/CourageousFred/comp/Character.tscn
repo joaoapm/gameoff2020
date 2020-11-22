@@ -15,7 +15,8 @@ albedo_color = Color( 0.807843, 1, 0.0156863, 1 )
 [sub_resource type="CylinderMesh" id=4]
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.278431, 0.278431, 0.501961, 0.501961 )
+flags_transparent = true
+albedo_color = Color( 0.298039, 0.501961, 0.278431, 0.619608 )
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 1.75632, 3.43205, 1.58868 )
@@ -35,7 +36,14 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="range" type="MeshInstance" parent="selected"]
-transform = Transform( 7.90962, 0, 0, 0, 2.50347, 0, 0, 0, 7.90962, 0, -2.8843, 0 )
+transform = Transform( 7.96951, 0, 0, 0, 0.672203, 0, 0, 0, 7.96951, 0, -0.377547, 0 )
+visible = false
+layers = 2
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="range2" type="MeshInstance" parent="selected"]
+transform = Transform( 15.9017, 0, 0, 0, 0.669532, 0, 0, 0, 15.9017, 0, -0.18534, 0 )
 visible = false
 layers = 2
 mesh = SubResource( 4 )

@@ -9,6 +9,8 @@ func process(character,id, point,target) -> void:
 		GUNS_SHOT(character, point,id)	
 	elif id == Super.SKILLS.CURE:
 		CURE(character, point,id, target)	
+	elif id == Super.SKILLS.AERIAL_ATACK:
+		AERIAL_ATACK(character, point,id)			
 		 
 func GER_CHAR(character,point,id) -> void :
 	if point == null :
@@ -58,12 +60,12 @@ func GER_BARRIER(character,point,id) :
 			barrierAdd.init(point)	
 			Super.charactersNode.add_child(barrierAdd)
 
-func GUNS_SHOT(character,point,id) :
-	Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
-	Super.menuAction.showSubActions()
-	var bulledAdd = load("res://comp/Bullet.tscn").instance()
+func GUNS_SHOT(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemy()
 	if enemy != null:
+		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
+		Super.menuAction.showSubActions()
+		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET)
 		character.doAtack(enemy.get_global_transform().origin, false)
 	
@@ -86,5 +88,14 @@ func CURE(character,point,id,target) :
 		target.addLife(1)
 		yield(character.get_tree().create_timer(1), "timeout")
 		character.endAtack() 
-		
 
+func AERIAL_ATACK(character,point,id) : 
+	var enemy = Super.enemyNode.getRandomEnemyAerial()
+	if enemy != null:
+		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
+		Super.menuAction.showSubActions()
+		var bulledAdd = load("res://comp/Bullet.tscn").instance()
+		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.ROCKET)
+		character.doAtack(enemy.get_global_transform().origin, true)
+		yield(character.get_tree().create_timer(1), "timeout")
+		character.endAtack() 

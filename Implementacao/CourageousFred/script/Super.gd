@@ -19,7 +19,7 @@ enum ACTIONS {MOVE, ATACK}
 
 enum TYPE_PROG_BAR {LIFE, COOLDONW}
 
-enum CHARACTERS  { FRED, DIGGER, GUNSLINGER, DOCTOR, ROCKETER, SMOKER, GRANADIER, TOWER, CANNON  }
+enum CHARACTERS  { FRED, DIGGER, GUNSLINGER, DOCTOR, ROCKETER, SMOKER, GRANADIER, TOWER, CANNON, HELICOPTER  }
 
 enum SKILLS { GER_ESC, GER_GUNS, GER_DOC, GER_ROCKT, GER_SMOK, GER_GRANAD, GER_BARRIER, GUNS_SHOT, ROCKET_SHOOT, CURE, AERIAL_ATACK }
  
@@ -39,7 +39,8 @@ const  CHAR_ASSETS = {
 	CHARACTERS.TOWER :  preload("res://assets/characters/tower/tower.tscn"),
 	CHARACTERS.CANNON :  preload("res://assets/characters/cannon/cannon.tscn"),
 	CHARACTERS.DOCTOR :  preload("res://assets/characters/doctor/doctor.tscn") ,
-	CHARACTERS.ROCKETER :  preload("res://assets/characters/rocketeer/rocketeer.tscn")  
+	CHARACTERS.ROCKETER :  preload("res://assets/characters/rocketeer/rocketeer.tscn"),
+	CHARACTERS.HELICOPTER :  preload("res://assets/characters/helicopter/helicopter.tscn")    
 }
 
 var COOLDOWN = []

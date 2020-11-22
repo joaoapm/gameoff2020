@@ -22,6 +22,13 @@ var enemyPlace
 var typeBullet
 var canDodge = false
 
+var isAutoMove = false
+var velocity = Vector3.ZERO
+var muzzle_velocity = 5 
+const lifespan = 20
+var time_alive = 0.0 
+var hilicopter = false
+
 var idSkillCurrent = null
 var isCharTargetSkillCurrent = false
 var  rangeSkillCurrent = 0
@@ -37,6 +44,9 @@ func _ready():
 		self.get_node("mesh").add_child(node.instance())
 		player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
 		$ProgBarLIfe.setValueMax(hp)
+	
+	if isAutoMove:
+		velocity = transform.basis.z * muzzle_velocity	
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
@@ -49,7 +59,13 @@ func init(character, point) -> void:
 	
 func _process(delta):
 
-	if actualPoint:
+	if isAutoMove:
+		transform.origin += 4 *  velocity * delta
+		time_alive += delta	
+		if time_alive > lifespan:
+			queue_free() 
+		
+	elif actualPoint:
 		var dir = (actualPoint - get_global_transform().origin).normalized()
 		global_translate(dir*(delta * movSpeed ))
 		 

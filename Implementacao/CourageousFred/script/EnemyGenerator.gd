@@ -5,7 +5,7 @@ var skillUtil = preload("res://util/SkillUtil.gd").new()
 var nbLevel1 = 1;
 var maxLvl1 = 3
 
-var nbLevel2 = 1;
+var nbLevel2 = 1000;
 var maxLvl2 = 6
 
 var nbLevel3 = 1
@@ -22,7 +22,7 @@ func init():
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
-	timer.set_wait_time(2)
+	timer.set_wait_time(10)
 	add_child(timer) 
 	timer.start() 
 
@@ -43,7 +43,12 @@ func spawEnemy():
 		characterAdd.isEnemy = true
 		
 		randomize() 
-		var random = int(rand_range(0, 125))
+		var maxRam
+		if Super.level == 1:
+			maxRam = 100
+		else:
+			maxRam = 125	
+		var random = int(rand_range(0, maxRam))
 		if random < 50: 
 			characterAdd.init(Super.CHARACTERS.TOWER,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.ROCKET
@@ -55,9 +60,12 @@ func spawEnemy():
 			characterAdd.canDodge = true 
 			addEnemy(characterAdd, place)
 		elif random > 100 && random <= 125 :
-			var heliAdd = load("res://assets/characters/helicopter/helicopter.tscn").instance()	
-			heliAdd.transform.origin = Super.enemyNode.get_node("a1").transform.origin							
-			$enemies.add_child(heliAdd) 
+			characterAdd.init(Super.CHARACTERS.HELICOPTER,$a1.transform.origin) 
+			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
+			characterAdd.canDodge = true 
+			characterAdd.isAutoMove = true
+			characterAdd.hilicopter = true
+			addEnemy(characterAdd, place)
 			
 func addEnemy(characterAdd, place):
 		characterAdd.enemyPlace = place
@@ -82,24 +90,43 @@ func getRandomPlace():
 	return places[int(random)]
 			
 func getRandomEnemy() -> Node:
+	var listAerial = []
+	for ae in  $enemies.get_children():
+		if  ae.get("hilicopter") == false:
+			listAerial.append(ae)
 	randomize() 
-	var random = rand_range(0, $enemies.get_child_count())
-	var enemySel = $enemies.get_child(random)
-	if enemySel != null && enemySel.hp > 0 :
-		return enemySel 
+	if listAerial.size() > 0:
+		var random = rand_range(0, listAerial.size())			
+		var enemySel = listAerial[random]
+		if enemySel != null && enemySel.hp > 0 :
+			return enemySel 
 	return null	 
 	
+func getRandomEnemyAerial() -> Node: 
+	var listAerial = []
+	for ae in  $enemies.get_children():
+		if ae.get("hilicopter") != null &&  ae.get("hilicopter") == true:
+			listAerial.append(ae)
+	randomize() 
+	if listAerial.size() > 0:
+		var random = rand_range(0, listAerial.size())			
+		var enemySel = listAerial[random]
+		if enemySel != null && enemySel.hp > 0 :
+			return enemySel 
+	return null	 
+		
 func getRandomChar() -> Node:
 	randomize() 
-	var random = rand_range(0, Super.charactersNode.get_child_count()) 
-	var charSel = Super.charactersNode.get_child(random)
+	var random = randi() % Super.charactersNode.get_child_count() + 1 
+	var charSel = Super.charactersNode.get_child(random - 1)
 	if charSel != null && charSel.hp > 0 :
 		return charSel 
 	return null	 
 
 func verifyEndLevel(deadEnemy):
-	 
-	places.append(deadEnemy.enemyPlace)
+	
+	if deadEnemy != null && deadEnemy.get("hilicopter") == false:
+		places.append(deadEnemy.enemyPlace)
 	
 	if Super.level == 1:
 		nbLevel1 = nbLevel1 -1; 
@@ -107,9 +134,7 @@ func verifyEndLevel(deadEnemy):
 			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
 			Super.level  = 2
 
-	elif Super.level == 2:
-		nbLevel2 = nbLevel2 -1; 
-		if  nbLevel2 == 0:
+	elif Super.level == 2 && deadEnemy == null:  
 			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
 			Super.level = 3		
 	

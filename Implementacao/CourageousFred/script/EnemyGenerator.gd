@@ -22,13 +22,13 @@ func init():
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
-	timer.set_wait_time(5)
+	timer.set_wait_time(2)
 	add_child(timer) 
 	timer.start() 
 
 	var timerAtack = Timer.new()
 	timerAtack.connect("timeout",self,"atack") 
-	timerAtack.set_wait_time(2)
+	timerAtack.set_wait_time(5)
 	add_child(timerAtack) 
 	#timerAtack.start() 	
  
@@ -43,16 +43,23 @@ func spawEnemy():
 		characterAdd.isEnemy = true
 		
 		randomize() 
-		var random = rand_range(0, 150)
+		var random = int(rand_range(0, 125))
 		if random < 50: 
 			characterAdd.init(Super.CHARACTERS.TOWER,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.ROCKET
-			characterAdd.canDodge = false
-		else:
+			characterAdd.canDodge = false 
+			addEnemy(characterAdd, place)
+		elif random >= 50 &&  random <= 100 :
 			characterAdd.init(Super.CHARACTERS.CANNON,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
-			characterAdd.canDodge = true
-				
+			characterAdd.canDodge = true 
+			addEnemy(characterAdd, place)
+		elif random > 100 && random <= 125 :
+			var heliAdd = load("res://assets/characters/helicopter/helicopter.tscn").instance()	
+			heliAdd.transform.origin = Super.enemyNode.get_node("a1").transform.origin							
+			$enemies.add_child(heliAdd) 
+			
+func addEnemy(characterAdd, place):
 		characterAdd.enemyPlace = place
 		$enemies.add_child(characterAdd)	
 		characterAdd.look_at($p5.transform.origin, Vector3(0,1,0))
@@ -71,7 +78,7 @@ func getRandomPlace():
 	if places.size() == 0:
 		return null
 	randomize() 
-	var random = rand_range(0, places.size())
+	var random = rand_range(0, places.size()) 
 	return places[int(random)]
 			
 func getRandomEnemy() -> Node:

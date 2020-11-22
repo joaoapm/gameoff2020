@@ -100,11 +100,11 @@ func setSelected(isSelected:bool) -> void :
 	
 func on_click_btn_skill(idSkill) -> void :
 	if !atacking && self == Super.selectedCharacter:
-		skillUtil.process(self,idSkill, null) 
+		skillUtil.process(self,idSkill, null,null) 
 		
-func on_complete_skill(point) -> void :
+func on_complete_skill(point,target) -> void :
 	if !atacking && self == Super.selectedCharacter:
-		skillUtil.process(self,idSkillCurrent,point)	
+		skillUtil.process(self,idSkillCurrent,point,target)	
 		$selected/range.hide()	
 		rangeSkillCurrent = 0
 		set_process(false)
@@ -120,7 +120,7 @@ func doAtack(point,block):
 			look_at(point,Vector3(0,1,0))
 		if block:
 			atacking = true
-		player.play("ATAQUE")
+		player.play("ATAQUE") 
 	
 func endAtack():
 	atacking = false
@@ -162,4 +162,7 @@ func _on_damageArea_body_entered(body):
 				Super.enemyNode.verifyEndLevel(self)	
 			else:
 				Super.menuAction.hide()	
-			
+
+func addLife(vlAdd):
+	hp += 1 
+	$ProgBarLIfe.setValue(hp)		

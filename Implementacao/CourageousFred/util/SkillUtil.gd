@@ -1,6 +1,6 @@
 extends Node
 	 
-func process(character,id, point) -> void: 
+func process(character,id, point,target) -> void: 
 	if id == Super.SKILLS.GER_ESC || id ==  Super.SKILLS.GER_GUNS || id ==  Super.SKILLS.GER_DOC || id ==  Super.SKILLS.GER_ROCKT || id == Super.SKILLS.GER_SMOK || id ==  Super.SKILLS.GER_GRANAD : 
 		GER_CHAR(character, point,id)
 	elif id == Super.SKILLS.GER_BARRIER:
@@ -8,7 +8,7 @@ func process(character,id, point) -> void:
 	elif id == Super.SKILLS.GUNS_SHOT:
 		GUNS_SHOT(character, point,id)	
 	elif id == Super.SKILLS.CURE:
-		CURE(character, point,id)	
+		CURE(character, point,id, target)	
 		 
 func GER_CHAR(character,point,id) -> void :
 	if point == null :
@@ -72,7 +72,7 @@ func IA_SHOT(character,target) :
 	character.doAtack(target.get_global_transform().origin, false) 
 	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet)
 
-func CURE(character,point,id) :
+func CURE(character,point,id,target) :
 	if point == null :
 		character.idSkillCurrent = id 
 		character.isCharTargetSkillCurrent = true
@@ -82,4 +82,9 @@ func CURE(character,point,id) :
 		Super.menuAction.showSubActions()
 		character.idSkillCurrent = null 
 		character.isCharTargetSkillCurrent = false
+		character.doAtack(target.get_global_transform().origin,true)
+		target.addLife(1)
+		yield(character.get_tree().create_timer(1), "timeout")
+		character.endAtack() 
+		
 

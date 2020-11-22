@@ -40,7 +40,7 @@ func _unhandled_input(event):
 					var p = Super.navMap.get_closest_point_to_segment(from, to)
 					var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
 					if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= Super.selectedCharacter.rangeSkillCurrent && Super.selectedCharacter.isCharTargetSkillCurrent == true: 
-						Super.emit_signal("on_complete_skill",p)
+						Super.emit_signal("on_complete_skill",p, character)
 					else:	
 						Super.selectedCharacter.setSelected(false)	
 						Super.selectedCharacter	 = character
@@ -55,7 +55,7 @@ func _unhandled_input(event):
 				var p = Super.navMap.get_closest_point_to_segment(from, to)
 				var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
 				if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= 10 && Super.selectedCharacter.isCharTargetSkillCurrent == false: 
-					Super.emit_signal("on_complete_skill",p)
+					Super.emit_signal("on_complete_skill",p, null)
 				else :
 								
 					var begin = Super.navMap.get_closest_point(Super.selectedCharacter.get_translation())

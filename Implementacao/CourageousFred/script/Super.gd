@@ -46,6 +46,6 @@ var COOLDOWN = []
 
 # Signals
 signal on_click_btn_skill(idItem)
-signal on_complete_skill(point)
+signal on_complete_skill(point,target)
 signal on_verify_cooldown()
 signal on_hit_target(target,body)

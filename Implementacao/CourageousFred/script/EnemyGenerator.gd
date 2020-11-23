@@ -2,13 +2,13 @@ extends Spatial
  
 var skillUtil = preload("res://util/SkillUtil.gd").new()
 
-var nbLevel1 = 1;
+var nbLevel1 = 1
 var maxLvl1 = 3
 
-var nbLevel2 = 1000;
+var nbLevel2 = 1000
 var maxLvl2 = 6
 
-var nbLevel3 = 1
+var nbLevel3 = 1000
 var maxLvl3 = 9
 
 var places = []

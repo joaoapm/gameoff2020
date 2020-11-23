@@ -50,7 +50,7 @@ func _ready():
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 
-	hp = 1
+	hp = 3
 	idChar = character
 	$mesh.add_child(assetAdd) 
 	player  = get_node("mesh").get_child(0).get_node("AnimationPlayer")
@@ -161,6 +161,10 @@ func getTarget():
 
 func _on_damageArea_body_entered(body):
 	if body != null && body.get("team") != null &&  body != self && ((isEnemy && body.team == Super.TEAM.PLAYER) || (!isEnemy && body.team == Super.TEAM.ENEMY)):
+		if body.isArea:
+			body.isArea = false
+			body.processAreaAtack() 
+			return
 		body.queue_free()
 		hp = hp - 1 
 		$ProgBarLIfe.setValue(hp)

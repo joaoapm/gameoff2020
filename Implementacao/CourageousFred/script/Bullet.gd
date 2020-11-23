@@ -7,6 +7,7 @@ const lifespan = 5
 var time_alive = 0.0 
 var muzzle_velocity = 25 
 var velocity = Vector3.ZERO
+var isArea = false
 
 func _physics_process(delta):
 	
@@ -22,13 +23,17 @@ func _physics_process(delta):
 		global_translate(dir*(100 * delta))	 
 		$bullet.look_at(dir, Vector3.UP) 
  
-func init(charShot,targetChar,teamBullet,canDodge, typeBullet):
+func init(charShot,targetChar,teamBullet,canDodge, typeBullet, _isArea):
 	
-	if typeBullet == Super.TYPE_BULLET.BULLET:
+	isArea = _isArea
+	
+	if _isArea:
+		$granade.show()	
+	elif typeBullet == Super.TYPE_BULLET.BULLET:
 		$bullet.show()
 	elif typeBullet == Super.TYPE_BULLET.ROCKET:
-		$rocket.show()
-			
+		$rocket.show() 
+		
 	_canDodge = canDodge
 	team = teamBullet
 	Super.charactersNode.get_parent().add_child(self)
@@ -39,3 +44,9 @@ func init(charShot,targetChar,teamBullet,canDodge, typeBullet):
 	else:
 		transform = charShot.getAtackPos().global_transform 
 		target	= targetChar
+
+func processAreaAtack(): 
+	var bodies = $Area.get_overlapping_bodies ( )
+	for charAtck in bodies:
+		if charAtck != self:
+			charAtck._on_damageArea_body_entered(self)

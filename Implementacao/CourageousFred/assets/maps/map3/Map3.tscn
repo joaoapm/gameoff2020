@@ -18,9 +18,9 @@ background_color = Color( 0.00784314, 0.027451, 0.117647, 1 )
 [node name="Map1" type="Navigation"]
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0303989, 0.999538, 0, -0.999538, 0.0303989, 65.2178, 240.466, -30.6647 )
+transform = Transform( 1, 0, 0, 0, 0.0303989, 0.999538, 0, -0.999538, 0.0303989, 29.2859, 183.266, -28.9646 )
 light_color = Color( 0.701961, 0.827451, 0.937255, 1 )
-light_energy = 7.55
+light_energy = 13.33
 spot_range = 286.072
 spot_angle = 38.3739
 

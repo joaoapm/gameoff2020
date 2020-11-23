@@ -11,7 +11,9 @@ func process(character,id, point,target) -> void:
 		CURE(character, point,id, target)	
 	elif id == Super.SKILLS.AERIAL_ATACK:
 		AERIAL_ATACK(character, point,id)			
-		 
+	elif id == Super.SKILLS.GRANADE:
+		GRANADE(character, point,id)	
+				 
 func GER_CHAR(character,point,id) -> void :
 	if point == null :
 		character.idSkillCurrent = id 
@@ -66,13 +68,13 @@ func GUNS_SHOT(character,point,id) :
 		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
 		Super.menuAction.showSubActions()
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
-		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET)
+		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET,false)
 		character.doAtack(enemy.get_global_transform().origin, false)
 	
 func IA_SHOT(character,target) :  
 	var bulledAdd = load("res://comp/Bullet.tscn").instance() 
 	character.doAtack(target.get_global_transform().origin, false) 
-	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet)
+	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet,false)
 
 func CURE(character,point,id,target) :
 	if point == null :
@@ -95,7 +97,16 @@ func AERIAL_ATACK(character,point,id) :
 		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
 		Super.menuAction.showSubActions()
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()
-		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.ROCKET)
+		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.ROCKET, false)
 		character.doAtack(enemy.get_global_transform().origin, true)
 		yield(character.get_tree().create_timer(1), "timeout")
 		character.endAtack() 
+
+func GRANADE(character,point,id) : 
+	var enemy = Super.enemyNode.getRandomEnemy()
+	if enemy != null:
+		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
+		Super.menuAction.showSubActions()
+		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
+		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET,true)
+		character.doAtack(enemy.get_global_transform().origin, false)

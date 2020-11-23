@@ -7,7 +7,7 @@ var charactersNode
 var enemyNode
 var inimigo
 var transitionUI
-var level = 2
+var level = 3
 
 var selectedCharacter
 
@@ -21,7 +21,7 @@ enum TYPE_PROG_BAR {LIFE, COOLDONW}
 
 enum CHARACTERS  { FRED, DIGGER, GUNSLINGER, DOCTOR, ROCKETER, SMOKER, GRANADIER, TOWER, CANNON, HELICOPTER  }
 
-enum SKILLS { GER_ESC, GER_GUNS, GER_DOC, GER_ROCKT, GER_SMOK, GER_GRANAD, GER_BARRIER, GUNS_SHOT, ROCKET_SHOOT, CURE, AERIAL_ATACK }
+enum SKILLS { GER_ESC, GER_GUNS, GER_DOC, GER_ROCKT, GER_SMOK, GER_GRANAD, GER_BARRIER, GUNS_SHOT, ROCKET_SHOOT, CURE, AERIAL_ATACK, GRANADE }
  
 const COOLDOWN_SKILL = 2
 
@@ -30,7 +30,8 @@ const  SKILLS_CHAR = {
 	CHARACTERS.DIGGER :  { "ID" : CHARACTERS.DIGGER, "SKILLS" : [SKILLS.GER_BARRIER ]},
 	CHARACTERS.GUNSLINGER : { "ID" : CHARACTERS.GUNSLINGER, "SKILLS" : [SKILLS.GUNS_SHOT ]},
 	CHARACTERS.DOCTOR : { "ID" : CHARACTERS.DOCTOR, "SKILLS" : [SKILLS.CURE ]},
-	CHARACTERS.ROCKETER : { "ID" : CHARACTERS.ROCKETER, "SKILLS" : [SKILLS.AERIAL_ATACK ]}
+	CHARACTERS.ROCKETER : { "ID" : CHARACTERS.ROCKETER, "SKILLS" : [SKILLS.AERIAL_ATACK ]},
+	CHARACTERS.GRANADIER : { "ID" : CHARACTERS.GRANADIER, "SKILLS" : [SKILLS.GRANADE ]}
 }
 
 const  CHAR_ASSETS = {
@@ -40,7 +41,8 @@ const  CHAR_ASSETS = {
 	CHARACTERS.CANNON :  preload("res://assets/characters/cannon/cannon.tscn"),
 	CHARACTERS.DOCTOR :  preload("res://assets/characters/doctor/doctor.tscn") ,
 	CHARACTERS.ROCKETER :  preload("res://assets/characters/rocketeer/rocketeer.tscn"),
-	CHARACTERS.HELICOPTER :  preload("res://assets/characters/helicopter/helicopter.tscn")    
+	CHARACTERS.HELICOPTER :  preload("res://assets/characters/helicopter/helicopter.tscn"),
+	CHARACTERS.GRANADIER :  preload("res://assets/characters/granadier/granadier.tscn")     
 }
 
 var COOLDOWN = []

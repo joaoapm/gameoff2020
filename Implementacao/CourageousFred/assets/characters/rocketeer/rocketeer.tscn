@@ -147,13 +147,13 @@ bind/41/name = "p_2_r"
 bind/41/bone = -1
 bind/41/pose = Transform( -0.940686, 8.65e-06, -5.08822e-07, 3.96718e-10, 0.0551949, 0.939064, 8.67288e-06, 0.938764, -0.0552213, -1.2755, -0.332933, -0.301445 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 2 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 1 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature001/Skeleton:cabeca")
@@ -450,7 +450,7 @@ tracks/41/imported = true
 tracks/41/enabled = true
 tracks/41/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-13, -2.20268e-13, 1, 1, 1, 1, 0.6, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-13, -2.20268e-13, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=5]
 length = 0.04
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature001/Skeleton:cabeca")
@@ -747,7 +747,7 @@ tracks/41/imported = true
 tracks/41/enabled = true
 tracks/41/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-13, -2.20268e-13, 1, 1, 1, 1, 0.04, 1, -1.86265e-09, 0, 0, 6.0536e-08, 3.81029e-13, -2.20268e-13, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=6]
 length = 0.04
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature001/Skeleton:cabeca")
@@ -1044,7 +1044,7 @@ tracks/41/imported = true
 tracks/41/enabled = true
 tracks/41/keys = PoolRealArray( 0, 1, 6.79679e-06, 0.753064, -0.837677, -0.702486, 1.87695e-09, -5.69652e-06, 0.711697, 1, 0.999652, 1.00035, 0.04, 1, 6.79679e-06, 0.753064, -0.837677, -0.702486, 1.87695e-09, -5.69652e-06, 0.711697, 1, 0.999652, 1.00035 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=7]
 length = 0.68
 loop = true
 tracks/0/type = "transform"
@@ -1858,16 +1858,17 @@ bones/41/enabled = true
 bones/41/bound_children = [  ]
 
 [node name="Group33042" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
-material/0 = SubResource( 9 )
+material/0 = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ESPERANDO"
-anims/ATAQUE = SubResource( 10 )
-anims/ESPERANDO = SubResource( 11 )
-anims/MORTO = SubResource( 12 )
-anims/MOVENDO = SubResource( 13 )
+anims/ATAQUE = SubResource( 4 )
+anims/ESPERANDO = SubResource( 5 )
+anims/MORTO = SubResource( 6 )
+anims/MOVENDO = SubResource( 7 )
 anims/PADRAO = SubResource( 8 )
 
 [node name="posAtaque" type="Position3D" parent="."]

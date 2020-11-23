@@ -18,18 +18,34 @@ background_color = Color( 0.00784314, 0.027451, 0.117647, 1 )
 [node name="Map1" type="Navigation"]
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0303989, 0.999538, 0, -0.999538, 0.0303989, 29.2859, 183.266, -28.9646 )
-light_color = Color( 0.701961, 0.827451, 0.937255, 1 )
-light_energy = 13.33
-spot_range = 286.072
-spot_angle = 38.3739
+transform = Transform( 0.992774, 0.0206002, 0.118217, -0.119998, 0.17043, 0.978036, 0, -0.985154, 0.171671, 10.4707, 205.678, 1.76018 )
+light_color = Color( 0.52549, 0.701961, 0.858824, 1 )
+light_energy = 9.86
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 11.82
+spot_range = 266.664
+spot_attenuation = 1.07177
+spot_angle = 34.4714
+spot_angle_attenuation = 0.784584
+
+[node name="SpotLightCharacters" type="SpotLight" parent="."]
+transform = Transform( 0.992774, 0.0206002, 0.118217, -0.119998, 0.17043, 0.978036, 0, -0.985154, 0.171671, 10.4707, 205.678, 1.76018 )
+light_energy = 9.86
+light_specular = 0.0
+light_cull_mask = 4293918722
+shadow_enabled = true
+shadow_bias = 16.0
+spot_range = 266.664
+spot_attenuation = 1.07177
+spot_angle = 34.4714
+spot_angle_attenuation = 0.784584
 
 [node name="EnemyGenerator" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3908, 1.73267, -63.6632 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
-transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 54.8042, 0.040307, 0 )
-visible = false
+transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 54.8042, 0.040307, 49.9921 )
 navmesh = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance"]
@@ -38,17 +54,17 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="map3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.427432, 0, 0.0344054, 0, 0.428815, 0, -0.0344054, 0, 0.427432, 35.1733, 1.09266, -33.9741 )
+transform = Transform( 0.427432, 0, 0.0344054, 0, 0.428815, 0, -0.0344054, 0, 0.427432, 35.1733, 1.66499, -33.9741 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.434325, -0.542476, 0.719084, 0.0106914, 0.80136, 0.598087, -0.900693, -0.252076, 0.35385, 92.1546, 69.3783, 17.7494 )
+transform = Transform( 0.242245, -0.526354, 0.815027, 0.00217664, 0.840341, 0.542054, -0.970213, -0.129536, 0.204714, 92.1546, 76.8083, -24.235 )
 current = true
 far = 432.2
 
 [node name="Characters" type="Spatial" parent="."]
 
 [node name="Character" parent="Characters" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17458, 2.24948, 65.0723 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17458, 1.18915, 56.407 )
 node = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

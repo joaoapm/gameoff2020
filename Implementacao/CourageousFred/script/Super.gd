@@ -7,7 +7,7 @@ var charactersNode
 var enemyNode
 var inimigo
 var transitionUI
-var level = 1
+var level = 3
 
 var selectedCharacter
 

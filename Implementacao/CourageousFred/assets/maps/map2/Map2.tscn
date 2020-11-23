@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 180 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -218.034, 130.75, -195.307 ), Vector3( -138.753, 25.3517, -123.244 ) ]
+"values": [ Vector3( -240.973, 126.496, -155.713 ), Vector3( -162.931, 27.9247, -98.9441 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -39,7 +39,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 180 ),
+"times": PoolRealArray( 179.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -51,17 +51,37 @@ tracks/1/keys = {
 script = ExtResource( 6 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0303989, 0.999538, 0, -0.999538, 0.0303989, -62.8431, 305.056, -108.188 )
-light_color = Color( 0.984314, 0.807843, 0.47451, 1 )
-light_energy = 7.55
+transform = Transform( 0.997751, -0.0141132, -0.0655199, 0.0660025, 0.376825, 0.92393, 0.0116499, -0.926177, 0.376909, -171.95, 305.056, 2.06805 )
+light_color = Color( 0.984314, 0.654902, 0.47451, 1 )
+light_energy = 7.92
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 2.86
 spot_range = 470.356
+spot_attenuation = 1.18921
+spot_angle = 54.8438
+
+[node name="SpotLightCharacter" type="SpotLight" parent="."]
+transform = Transform( 0.997751, -0.0141132, -0.0655199, 0.0670227, 0.210101, 0.97538, 0, -0.977578, 0.210574, -91.9183, 211.551, -40.2392 )
+light_specular = 0.23
+light_cull_mask = 2146435074
+spot_range = 470.356
+spot_attenuation = 1.18921
+spot_angle = 54.8438
+
+[node name="SpotLightCharacter2" type="SpotLight" parent="."]
+transform = Transform( 0.36395, 0.196133, 0.910534, -0.931418, 0.0766386, 0.35579, 0, -0.977578, 0.210574, 201.428, 124.958, -40.2392 )
+light_specular = 0.33
+light_cull_mask = 2146435074
+spot_range = 470.356
+spot_attenuation = 1.18921
 spot_angle = 54.8438
 
 [node name="EnemyGenerator" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.3344, 0, -129.75 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -110.174, -0.457842, -129.75 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
-transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.60032, 0 )
+transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 navmesh = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance"]
@@ -71,10 +91,10 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="map2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.999639, 0, 0.0268574, 0, 1, 0, -0.0268574, 0, 0.999639, -0.00164795, -3.05176e-05, -3.47385 )
+transform = Transform( 0.982143, 0, 0.188136, 0, 1, 0, -0.188136, 0, 0.982143, -0.00164795, 0.942616, -3.47385 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.315599, -0.350857, 0.881644, -0.00371953, 0.928665, 0.370901, -0.948885, -0.120335, 0.291781, 28.1635, 78.5673, 1.98857 )
+transform = Transform( 0.0364886, -0.37053, 0.928104, -0.00371953, 0.928665, 0.370901, -0.999327, -0.0169858, 0.0325075, 47.2958, 78.5673, -47.9967 )
 current = true
 far = 432.2
 
@@ -84,11 +104,11 @@ far = 432.2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.5892, 0.741909, 50.2447 )
 node = ExtResource( 3 )
 
-[node name="nave" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.956499, 0.0254916, -0.290622, -0.0066031, 0.997811, 0.0657899, 0.291663, -0.0610089, 0.954574, -139.502, 26.3472, -123.925 )
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
+
+[node name="nave" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.997055, 0.0400446, -0.0654029, -0.0441706, 0.997041, -0.0629081, 0.0626903, 0.0656117, 0.995874, -162.931, 27.9247, -98.9441 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"

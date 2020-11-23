@@ -25,7 +25,7 @@ bind/1/name = "bone_1"
 bind/1/bone = -1
 bind/1/pose = Transform( 1, 7.22567e-16, -7.37433e-16, -7.37433e-16, 0.999793, -0.0203624, 7.22567e-16, 0.0203624, 0.999793, -1.81713e-15, -2.5143, -0.0512078 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "ATAQUE"
 length = 0.72
 loop = true
@@ -44,7 +44,7 @@ tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.72, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "MORTO"
 length = 0.72
 loop = true
@@ -63,7 +63,7 @@ tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.72, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.72
 loop = true
 tracks/0/type = "transform"
@@ -100,15 +100,16 @@ bones/1/enabled = true
 bones/1/bound_children = [  ]
 
 [node name="ZBrush_defualt_group3" type="MeshInstance" parent="Armature/Skeleton"]
+layers = 3
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "MOVENDO"
-anims/ATAQUE = SubResource( 4 )
-anims/MORTO = SubResource( 5 )
-anims/MOVENDO = SubResource( 3 )
+anims/ATAQUE = SubResource( 3 )
+anims/MORTO = SubResource( 4 )
+anims/MOVENDO = SubResource( 5 )
 
 [node name="posAtaque" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.393705, 0.556752, 2.4077e-08 )

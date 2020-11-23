@@ -1857,6 +1857,7 @@ bones/41/enabled = true
 bones/41/bound_children = [  ]
 
 [node name="Group32028" type="MeshInstance" parent="Armature001/Skeleton"]
+layers = 2147483651
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null

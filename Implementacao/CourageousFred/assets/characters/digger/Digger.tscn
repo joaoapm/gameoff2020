@@ -1919,31 +1919,31 @@ bones/41/enabled = true
 bones/41/bound_children = [  ]
 
 [node name="ZBrush_defualt_group" type="MeshInstance" parent="Armature001/Skeleton"]
-layers = 2
+layers = 3
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group1" type="MeshInstance" parent="Armature001/Skeleton"]
-layers = 2
+layers = 3
 mesh = SubResource( 3 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group2" type="MeshInstance" parent="Armature001/Skeleton"]
-layers = 2
+layers = 3
 mesh = SubResource( 4 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group3" type="MeshInstance" parent="Armature001/Skeleton"]
-layers = 2
+layers = 3
 mesh = SubResource( 5 )
 skin = SubResource( 2 )
 material/0 = null
 
 [node name="ZBrush_defualt_group4" type="MeshInstance" parent="Armature001/Skeleton"]
-layers = 2
+layers = 3
 mesh = SubResource( 6 )
 skin = SubResource( 2 )
 material/0 = null

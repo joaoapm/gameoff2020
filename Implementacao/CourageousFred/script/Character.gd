@@ -34,6 +34,7 @@ var isCharTargetSkillCurrent = false
 var rangeSkillCurrent = 0
  
 export(bool) onready var isEnemy
+export(bool) onready var isImortal
 export(Resource) onready var node
 
 func _ready():
@@ -46,7 +47,11 @@ func _ready():
 		$ProgBarLIfe.setValueMax(hp)
 	
 	if isAutoMove:
-		velocity = transform.basis.z * muzzle_velocity	
+		velocity = transform.basis.z * muzzle_velocity
+		
+	if isImortal:
+		$ProgBarLIfe.hide()	
+		$ProgBarCoolDown.hide()	
 
 func init(character, point) -> void: 
 	var assetAdd =  Super.CHAR_ASSETS[character].instance() 

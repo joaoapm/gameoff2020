@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/maps/map3/import/map3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://comp/EnemyGenerator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/characters/fred/Fred.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/characters/fred/fred.tscn" type="PackedScene" id=3]
 [ext_resource path="res://comp/Character.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationMesh" id=1]

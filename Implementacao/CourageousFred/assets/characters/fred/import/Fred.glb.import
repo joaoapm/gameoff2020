@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Fred.glb-865978bc636483307323c2767904ffc1.scn"
+path="res://.import/fred.glb-5eb1fdd51fc5bf751a062c2fcbf127e0.scn"
 
 [deps]
 
-source_file="res://assets/characters/fred/import/Fred.glb"
-dest_files=[ "res://.import/Fred.glb-865978bc636483307323c2767904ffc1.scn" ]
+source_file="res://assets/characters/fred/import/fred.glb"
+dest_files=[ "res://.import/fred.glb-5eb1fdd51fc5bf751a062c2fcbf127e0.scn" ]
 
 [params]
 

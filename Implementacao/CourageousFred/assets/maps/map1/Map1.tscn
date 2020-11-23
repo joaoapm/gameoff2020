@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/maps/map1/import/map1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://comp/EnemyGenerator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/characters/fred/Fred.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/characters/fred/fred.tscn" type="PackedScene" id=3]
 [ext_resource path="res://comp/Character.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationMesh" id=1]
@@ -17,14 +17,47 @@ background_mode = 1
 [node name="Map1" type="Navigation"]
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0303989, 0.999538, 0, -0.999538, 0.0303989, 0, 203.929, -1.11253 )
-light_color = Color( 0.984314, 0.807843, 0.47451, 1 )
+transform = Transform( 1, 0, 0, 0, -0.0816429, 0.996662, 0, -0.996662, -0.0816429, 0, 167.523, 84.4728 )
+light_color = Color( 0.964706, 0.552941, 0.443137, 1 )
 light_energy = 7.55
-spot_range = 239.028
-spot_angle = 42.1875
+light_cull_mask = 4293918723
+shadow_enabled = true
+shadow_bias = 5.07
+spot_range = 255.518
+spot_attenuation = 0.840896
+spot_angle = 37.4616
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.466325, 0.884614, 0, -0.884614, 0.466325, 0, 167.523, 84.4728 )
+light_color = Color( 0.964706, 0.552941, 0.443137, 1 )
+light_energy = 7.55
+light_cull_mask = 4293918723
+shadow_enabled = true
+shadow_bias = 5.07
+spot_range = 255.518
+spot_attenuation = 0.840896
+spot_angle = 37.4616
+
+[node name="CharacterLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.531354, 0.84715, 0, -0.84715, 0.531354, 0, 167.523, 89.4584 )
+layers = 2
+light_energy = 4.0
+light_cull_mask = 4293918722
+spot_range = 255.518
+spot_attenuation = 0.840896
+spot_angle = 37.4616
+
+[node name="CharacterLight2" type="SpotLight" parent="."]
+transform = Transform( 0.102601, -0.842679, 0.52855, 0, 0.531354, 0.84715, -0.994723, -0.0869188, 0.0545177, 122.697, 167.523, 31.8619 )
+layers = 2
+light_energy = 4.0
+light_cull_mask = 4293918722
+spot_range = 255.518
+spot_attenuation = 0.840896
+spot_angle = 37.4616
 
 [node name="EnemyGenerator" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.654, 0, -12.8066 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.654, -1.1479, -12.8066 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 transform = Transform( 2.009, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.88266, 0 )

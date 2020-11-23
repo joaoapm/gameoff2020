@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Digger.glb-3cfb90e37fd6db6ec8296e3a37da7a14.scn"
+path="res://.import/digger.glb-5704a21a9b78a7ace96fbe8c10ce4b85.scn"
 
 [deps]
 
-source_file="res://assets/characters/digger/import/Digger.glb"
-dest_files=[ "res://.import/Digger.glb-3cfb90e37fd6db6ec8296e3a37da7a14.scn" ]
+source_file="res://assets/characters/digger/import/digger.glb"
+dest_files=[ "res://.import/digger.glb-5704a21a9b78a7ace96fbe8c10ce4b85.scn" ]
 
 [params]
 

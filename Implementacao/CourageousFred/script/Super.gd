@@ -35,7 +35,7 @@ const  SKILLS_CHAR = {
 }
 
 const  CHAR_ASSETS = {
-	CHARACTERS.DIGGER :  preload("res://assets/characters/digger/Digger.tscn"),
+	CHARACTERS.DIGGER :  preload("res://assets/characters/digger/digger.tscn"),
 	CHARACTERS.GUNSLINGER :  preload("res://assets/characters/gunslinger/gunslinger.tscn"),
 	CHARACTERS.TOWER :  preload("res://assets/characters/tower/tower.tscn"),
 	CHARACTERS.CANNON :  preload("res://assets/characters/cannon/cannon.tscn"),

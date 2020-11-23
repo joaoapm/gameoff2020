@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/characters/cannon/import/CanhaoUV.material" type="Material" id=1]
+[ext_resource path="res://assets/characters/cannon/import/Material.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Canhao"
@@ -38,7 +38,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0.264321, 0, 0, 0, 1, 1, 1, 1, 0.0666
 [sub_resource type="Animation" id=4]
 resource_name = "ESPERANDO"
 length = 0.0416667
-loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:bone")
 tracks/0/interp = 1
@@ -81,10 +80,10 @@ tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
 [node name="cannon" type="Spatial"]
-transform = Transform( -1.35653, 0, -1.18592e-07, 0, 1.35653, 0, 1.18592e-07, 0, -1.35653, 0, 0, 0 )
+transform = Transform( -3.03178, 0, -2.65047e-07, 0, 3.03178, 0, 2.65047e-07, 0, -3.03178, 0, 0, 0 )
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 1.55353, 0, 1.42109e-14, 0, 1.55353, 0, -1.42109e-14, 0, 1.55353, 0, 1.0375, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.717549, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "bone"
@@ -94,7 +93,6 @@ bones/0/enabled = true
 bones/0/bound_children = [  ]
 
 [node name="Canhao" type="MeshInstance" parent="Armature/Skeleton"]
-layers = 2
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
@@ -107,4 +105,4 @@ anims/MOVENDO = SubResource( 6 )
 anims/PADRAO = SubResource( 7 )
 
 [node name="posAtaque" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53927e-07, 2.27619, 1.76072 )
+transform = Transform( 1, 0, -4.26326e-14, 0, 1, 0, 4.26326e-14, 0, 1, -1.11825e-07, 2.0992, 1.27912 )

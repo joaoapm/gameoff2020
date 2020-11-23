@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/particles/smoke.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.797297, 0.977477 )
+colors = PoolColorArray( 0.772461, 0.608636, 0.0301743, 1, 0.914063, 0.0357056, 0.0357056, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 0.1
+flag_align_y = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.8
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = 0.2
+linear_accel_random = 1.0
+color_ramp = SubResource( 3 )
+hue_variation = 1.0
+
+[sub_resource type="QuadMesh" id=5]
+
+[node name="Particles" type="Particles"]
+transform = Transform( -0.147509, 0, -7.21208, 0, 7.21517, 0, 5.04134, 0, -0.211027, 0, 6.6894, 0 )
+material_override = SubResource( 1 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )

@@ -31,7 +31,7 @@ var hilicopter = false
 
 var idSkillCurrent = null
 var isCharTargetSkillCurrent = false
-var  rangeSkillCurrent = 0
+var rangeSkillCurrent = 0
  
 export(bool) onready var isEnemy
 export(Resource) onready var node
@@ -166,6 +166,10 @@ func _on_damageArea_body_entered(body):
 			body.processAreaAtack() 
 			return
 		body.queue_free()
+		var particle = load("res://comp/Particles.tscn").instance()
+		particle.transform.origin = $mesh.transform.origin 
+		add_child(particle)
+		particle.emitting = true
 		hp = hp - 1 
 		$ProgBarLIfe.setValue(hp)
 		if hp == 0:

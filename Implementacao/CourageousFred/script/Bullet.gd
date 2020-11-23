@@ -50,3 +50,5 @@ func processAreaAtack():
 	for charAtck in bodies:
 		if charAtck != self:
 			charAtck._on_damageArea_body_entered(self)
+
+ 

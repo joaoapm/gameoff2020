@@ -2,14 +2,14 @@ extends Spatial
  
 var skillUtil = preload("res://util/SkillUtil.gd").new()
 
-var nbLevel1 = 1
-var maxLvl1 = 3
+var nbLevel1 = 10
+var maxLvl1 = 4
 
 var nbLevel2 = 1000
 var maxLvl2 = 6
 
 var nbLevel3 = 1000
-var maxLvl3 = 9
+var maxLvl3 = 8
 
 var places = []
 
@@ -30,7 +30,7 @@ func init():
 	timerAtack.connect("timeout",self,"atack") 
 	timerAtack.set_wait_time(5)
 	add_child(timerAtack) 
-	#timerAtack.start() 	
+	timerAtack.start() 	
  
 func spawEnemy():
 	if Super.level == 1 && $enemies.get_child_count() == maxLvl1 || Super.level == 2 && $enemies.get_child_count() == maxLvl2 || Super.level == 3 && $enemies.get_child_count() == maxLvl3:
@@ -81,6 +81,10 @@ func atack():
 			var charAtack = getRandomEnemy()
 			if target != null && charAtack != null:
 				skillUtil.IA_SHOT(charAtack,target) 
+	var target = getRandomChar()		
+	Super.boss.typeBullet =  Super.TYPE_BULLET.PHASER
+	Super.boss.canDodge = false
+	skillUtil.IA_SHOT(Super.boss,target)
 
 func getRandomPlace():
 	if places.size() == 0:

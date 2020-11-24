@@ -7,8 +7,8 @@ func _ready():
 	Super.charactersNode = $Map.getCharactersNode()
 	
 	Super.menuAction = $MenuAction
-	Super.transitionUI = $TransitionUI 
+	Super.transitionUI = $TransitionUI
 	
 	GameHelper.processCoolDown(self)
 	 
-	Super.enemyNode.init() 
+	Super.enemyNode.init()

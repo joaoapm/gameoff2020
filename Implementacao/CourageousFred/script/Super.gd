@@ -5,13 +5,14 @@ var navMap:Navigation
 var menuAction:Control
 var charactersNode
 var enemyNode
+var boss
 var inimigo
 var transitionUI
 var level = 3
 
 var selectedCharacter
 
-enum TYPE_BULLET {BULLET, ROCKET}
+enum TYPE_BULLET {BULLET, ROCKET, PHASER}
 
 enum TEAM {PLAYER, ENEMY}
 

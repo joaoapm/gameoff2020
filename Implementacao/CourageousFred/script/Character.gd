@@ -172,8 +172,9 @@ func _on_damageArea_body_entered(body):
 			return
 		body.queue_free()
 		var particle = load("res://comp/Particles.tscn").instance()
-		particle.transform.origin = $mesh.transform.origin 
-		add_child(particle)
+		Super.charactersNode.get_parent().add_child(particle)
+		particle.global_transform.origin = $mesh.global_transform.origin
+		
 		particle.emitting = true
 		hp = hp - 1 
 		$ProgBarLIfe.setValue(hp)

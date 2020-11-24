@@ -15,6 +15,7 @@ func _ready():
 	elif Super.level == 3:
 		currentMap = load("res://assets/maps/map3/Map3.tscn").instance()	
 		add_child(currentMap)
+		Super.boss = get_child(0).get_node("Bluish")
 		
 func getNavMap() -> Node :
 	return currentMap  

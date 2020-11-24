@@ -33,7 +33,9 @@ func init(charShot,targetChar,teamBullet,canDodge, typeBullet, _isArea):
 		$bullet.show()
 	elif typeBullet == Super.TYPE_BULLET.ROCKET:
 		$rocket.show() 
-		
+	elif typeBullet == Super.TYPE_BULLET.PHASER:
+		$phaser.show() 
+				
 	_canDodge = canDodge
 	team = teamBullet
 	Super.charactersNode.get_parent().add_child(self)

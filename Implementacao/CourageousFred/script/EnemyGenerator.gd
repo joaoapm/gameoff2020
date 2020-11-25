@@ -9,7 +9,7 @@ var nbLevel2 = 1000
 var maxLvl2 = 6
 
 var nbLevel3 = 1000
-var maxLvl3 = 8
+var maxLvl3 = 50
 
 var places = []
 

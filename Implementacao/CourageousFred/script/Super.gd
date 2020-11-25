@@ -8,7 +8,7 @@ var enemyNode
 var boss
 var inimigo
 var transitionUI
-var level = 3
+var level = 1
 
 var selectedCharacter
 

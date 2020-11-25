@@ -82,9 +82,10 @@ func atack():
 			if target != null && charAtack != null:
 				skillUtil.IA_SHOT(charAtack,target) 
 	var target = getRandomChar()		
-	Super.boss.typeBullet =  Super.TYPE_BULLET.PHASER
-	Super.boss.canDodge = false
-	skillUtil.IA_SHOT(Super.boss,target)
+	if Super.boss != null:
+		Super.boss.typeBullet =  Super.TYPE_BULLET.PHASER
+		Super.boss.canDodge = false
+		skillUtil.IA_SHOT(Super.boss,target)
 
 func getRandomPlace():
 	if places.size() == 0:

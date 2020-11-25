@@ -57,6 +57,7 @@ func _unhandled_input(event):
 				var distanceRange = Super.selectedCharacter.get_global_transform().origin.distance_to(p)
 				if Super.selectedCharacter.idSkillCurrent != null && distanceRange <= 10 && Super.selectedCharacter.isCharTargetSkillCurrent == false: 
 					Super.emit_signal("on_complete_skill",p, null)
+					indication(event)
 				else :
 								
 					var begin = Super.navMap.get_closest_point(Super.selectedCharacter.get_translation())
@@ -66,7 +67,17 @@ func _unhandled_input(event):
 					var path = Array(p2)  
 					
 					Super.selectedCharacter.doAction(path)	
+					indication(event)
+			else :
+				indication(event)		
 
+func indication(event):
+		var from = Super.camera.project_ray_origin(event.position)	 
+		var to = from + Super.camera.project_ray_normal(event.position)*1000
+		var p = Super.navMap.get_closest_point_to_segment(from, to)		
+		var particle = load("res://comp/arrow_pointing.tscn").instance()
+		add_child(particle)
+		particle.global_transform.origin =  p
 
 func clickedCharacter() -> Node :
 	var mouse_pos = get_viewport().get_mouse_position()

@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/material/arrow_materiall.tres" type="Material" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "act"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4.07797, 0 ), Vector3( 0, -2.9444, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="PrismMesh" id=2]
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "act"
+anims/act = SubResource( 1 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( -1.33097, 1.16357e-07, 0, -1.16357e-07, -1.33097, 0, 0, 0, 0.46555, 0, 4.07797, 0 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Spatial"]
+transform = Transform( -4.37114e-08, 8.74228e-08, 0.349782, 8.74228e-08, 1, -3.05789e-08, -2.85893, 2.49935e-07, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.328658, 6.65353e-08, 0, 1.719e-07, 1.32873, 0, 0, 0, 0.939609, -1.93663e-07, -2.21525, 0 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 1 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Spatial"]
+transform = Transform( -1.38029, -6.01671e-09, 0, 1.20669e-07, -0.0688232, 0, 0, 0, 3.94614, 9.3874e-08, 1.07379, 0 )
+visible = false
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )

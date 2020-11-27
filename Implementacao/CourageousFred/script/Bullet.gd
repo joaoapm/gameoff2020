@@ -50,7 +50,7 @@ func init(charShot,targetChar,teamBullet,canDodge, typeBullet, _isArea):
 func processAreaAtack(): 
 	var bodies = $Area.get_overlapping_bodies ( )
 	for charAtck in bodies:
-		if charAtck != self:
+		if charAtck.get("hp") != null && charAtck != self:
 			charAtck._on_damageArea_body_entered(self)
 
  

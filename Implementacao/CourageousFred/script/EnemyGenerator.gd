@@ -8,8 +8,8 @@ var maxLvl1 = 4
 var nbLevel2 = 1000
 var maxLvl2 = 6
 
-var nbLevel3 = 1000
-var maxLvl3 = 50
+var nbLevel3 = 20
+var maxLvl3 = 8
 
 var places = []
 
@@ -146,5 +146,5 @@ func verifyEndLevel(deadEnemy):
 	elif Super.level == 3:
 		nbLevel3 = nbLevel3 -1; 
 		if  nbLevel3 == 0:
-			Super.transitionUI.fadein_transition("res://scenes/LevelComplete.tscn")
+			Super.transitionUI.fadein_transition("res://scenes/GameFinal.tscn")
 			Super.level = 4

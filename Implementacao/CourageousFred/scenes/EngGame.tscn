@@ -7,10 +7,10 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -47,8 +47,8 @@ margin_top = 363.735
 margin_right = 768.122
 margin_bottom = 426.735
 custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 text = "Restart"
 __meta__ = {

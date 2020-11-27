@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/videos/ending_final.ogv" type="VideoStream" id=1]
+[ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://script/GameFinal.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/Welbut__.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends VideoPlayer
+
+
+func _ready():
+	pass
+
+
+func _on_restartButton_button_up():
+	pass # Replace with function body.
+"
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 4 )
+
+[node name="GameFinal" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 725.111
+margin_top = 327.759
+margin_right = 786.111
+margin_bottom = 341.759
+text = "cena final"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1279.0
+margin_bottom = 716.0
+stream = ExtResource( 1 )
+autoplay = true
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartButton" type="Button" parent="."]
+visible = false
+margin_left = 523.387
+margin_top = 580.98
+margin_right = 769.387
+margin_bottom = 681.98
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransitionUI" parent="." instance=ExtResource( 2 )]
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="button_up" from="restartButton" to="." method="_on_restartButton_button_up"]

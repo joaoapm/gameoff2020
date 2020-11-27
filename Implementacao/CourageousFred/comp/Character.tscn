@@ -4,8 +4,8 @@
 [ext_resource path="res://comp/ProgBar.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 1.63873
-height = 4.07128
+radius = 3.0
+height = 8.0
 
 [sub_resource type="CylinderMesh" id=2]
 

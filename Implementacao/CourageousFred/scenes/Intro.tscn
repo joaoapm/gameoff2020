@@ -19,10 +19,10 @@ border_width_bottom = 1
 size = 25
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
 [node name="Intro" type="Control"]
@@ -150,8 +150,8 @@ margin_right = 1192.0
 margin_bottom = 580.218
 rect_pivot_offset = Vector2( 102.101, 195.136 )
 focus_mode = 2
-custom_styles/focus = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "
 

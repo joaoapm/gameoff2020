@@ -22,13 +22,13 @@ func init():
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
-	timer.set_wait_time(10)
+	timer.set_wait_time(7)
 	add_child(timer) 
 	timer.start() 
 
 	var timerAtack = Timer.new()
 	timerAtack.connect("timeout",self,"atack") 
-	timerAtack.set_wait_time(5)
+	timerAtack.set_wait_time(2.5)
 	add_child(timerAtack) 
 	timerAtack.start() 	
  

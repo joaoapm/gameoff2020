@@ -33,7 +33,7 @@ func GER_CHAR(character,point,id) -> void :
 		elif id ==  Super.SKILLS.GER_GRANAD : 
 			persoGer = Super.CHARACTERS.GRANADIER
 
-		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 10, "character": character})
+		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 13, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true,"SoundHammer")
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
@@ -50,7 +50,7 @@ func GER_BARRIER(character,point,id) :
 		character.idSkillCurrent = id 
 		character.showRange(1)
 	else:	
-		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 10, "character": character})
+		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 13, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true,"SoundDig")
 		character.showAtackProgress(Super.COOLDOWN_SKILL)

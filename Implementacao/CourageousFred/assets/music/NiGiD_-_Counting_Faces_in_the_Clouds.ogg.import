@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/NiGiD_-_Counting_Faces_in_the_Clouds.ogg-125d93c2f89492c0bb2ba399c647dc7c.oggstr"
+
+[deps]
+
+source_file="res://assets/music/NiGiD_-_Counting_Faces_in_the_Clouds.ogg"
+dest_files=[ "res://.import/NiGiD_-_Counting_Faces_in_the_Clouds.ogg-125d93c2f89492c0bb2ba399c647dc7c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

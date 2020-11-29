@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/videos/ending_final.ogv" type="VideoStream" id=1]
 [ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://script/GameFinal.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/Welbut__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/NiGiD_-_Counting_Faces_in_the_Clouds.ogg" type="AudioStream" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends VideoPlayer
@@ -16,18 +17,6 @@ func _ready():
 func _on_restartButton_button_up():
 	pass # Replace with function body.
 "
-
-[sub_resource type="StyleBoxFlat" id=2]
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.247059, 0.247059, 0.247059, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 28
-font_data = ExtResource( 4 )
 
 [node name="GameFinal" type="Control"]
 script = ExtResource( 3 )
@@ -55,21 +44,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="restartButton" type="Button" parent="."]
+[node name="restartButton" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_left = 523.387
-margin_top = 580.98
-margin_right = 769.387
-margin_bottom = 681.98
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
+margin_left = 603.551
+margin_top = 603.02
+margin_right = 773.551
+margin_bottom = 661.02
 text = "Restart"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TransitionUI" parent="." instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="button_up" from="restartButton" to="." method="_on_restartButton_button_up"]

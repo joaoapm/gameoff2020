@@ -1,40 +1,28 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/backgrounds/intro.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Welbut__.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/videos/fred_intro.ogv" type="VideoStream" id=3]
 [ext_resource path="res://script/Intro.gd" type="Script" id=4]
 [ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/music/Zapac_-_The_darkest_room.ogg" type="AudioStream" id=6]
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.266667, 0.266667, 0.266667, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 
-[sub_resource type="DynamicFont" id=4]
-size = 37
+[sub_resource type="DynamicFont" id=2]
+size = 25
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 
-[sub_resource type="DynamicFont" id=6]
-size = 28
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 31
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
 [node name="Intro" type="Control"]
@@ -46,105 +34,22 @@ __meta__ = {
 }
 
 [node name="intro" type="Sprite" parent="."]
-position = Vector2( 638.917, 362.322 )
+position = Vector2( 640.599, 362.322 )
 texture = ExtResource( 1 )
 
-[node name="StartButton" type="Button" parent="."]
-margin_left = 657.897
-margin_top = 548.991
-margin_right = 878.897
-margin_bottom = 620.991
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+[node name="StartButton" parent="." instance=ExtResource( 7 )]
+margin_left = 627.0
+margin_top = 622.0
+margin_right = 746.0
+margin_bottom = 680.0
 text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Credits" type="Control" parent="."]
-visible = false
-margin_left = 324.269
-margin_top = 43.4696
-margin_right = 887.269
-margin_bottom = 678.47
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="Credits"]
-margin_right = 706.0
-margin_bottom = 626.0
-custom_styles/panel = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Credits"]
-margin_left = 17.9594
-margin_top = 6.73477
-margin_right = 128.959
-margin_bottom = 45.7348
-custom_fonts/font = SubResource( 6 )
+[node name="OpenCredits" parent="." instance=ExtResource( 7 )]
+margin_left = 52.0
+margin_top = 622.0
+margin_right = 168.0
+margin_bottom = 681.0
 text = "Credits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Credits"]
-margin_left = 10.9594
-margin_top = 91.1495
-margin_right = 573.959
-margin_bottom = 172.149
-custom_fonts/font = SubResource( 6 )
-text = "Scenarios, UI, 3d Models, Development
-                        -Joao Antonio Matiuzzi"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CloseCredits" type="Button" parent="Credits"]
-margin_left = 301.607
-margin_top = 548.589
-margin_right = 445.607
-margin_bottom = 599.589
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 7 )
-text = "Close"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Credits"]
-margin_left = 13.0
-margin_top = 218.0
-margin_right = 576.0
-margin_bottom = 383.0
-custom_fonts/font = SubResource( 6 )
-text = "Fonts:
- - Wellbutrin
- - Vademecum
- Avaliable free:  https://www.1001fonts.com/"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OpenCredits" type="Button" parent="."]
-margin_left = 62.3496
-margin_top = 625.394
-margin_right = 206.35
-margin_bottom = 676.394
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 7 )
-text = "Credits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 anchor_right = 1.0
@@ -155,16 +60,159 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SkipButton" type="Button" parent="."]
-margin_left = 1110.73
-margin_top = 308.859
-margin_right = 1254.73
-margin_bottom = 359.859
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 7 )
+[node name="SkipButton" parent="." instance=ExtResource( 7 )]
+margin_left = 1124.77
+margin_top = 316.136
+margin_right = 1242.77
+margin_bottom = 378.136
 text = "Skip"
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+margin_left = 56.0
+margin_top = 38.0
+margin_right = 1235.0
+margin_bottom = 698.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Credits"]
+margin_right = 1195.0
+margin_bottom = 650.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Credits"]
+margin_left = 17.9594
+margin_top = 6.73477
+margin_right = 128.959
+margin_bottom = 45.7348
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Credits"]
+margin_left = 10.9594
+margin_top = 52.8896
+margin_right = 573.959
+margin_bottom = 133.889
+custom_fonts/font = SubResource( 2 )
+text = "* Scenarios, UI, 3d Models, Development
+                        -Joao Antonio Matiuzzi"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseCredits" parent="Credits" instance=ExtResource( 7 )]
+margin_left = 510.565
+margin_top = 576.46
+margin_right = 635.565
+margin_bottom = 643.46
+text = "Close"
+
+[node name="Label3" type="Label" parent="Credits"]
+margin_left = 13.0
+margin_top = 135.0
+margin_right = 617.0
+margin_bottom = 300.0
+rect_pivot_offset = Vector2( 102.101, 195.136 )
+custom_fonts/font = SubResource( 2 )
+text = "* Fonts:
+ - Wellbutrin
+ - Vademecum
+ Avaliable free:  https://www.1001fonts.com/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Credits"]
+margin_left = 18.0
+margin_top = 305.0
+margin_right = 578.0
+margin_bottom = 381.0
+rect_pivot_offset = Vector2( 102.101, 195.136 )
+custom_fonts/font = SubResource( 2 )
+text = "* Sound Effects:
+- Obtained from https://www.zapsplat.com"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="RichTextLabel" parent="Credits"]
+margin_left = 660.0
+margin_top = 7.21821
+margin_right = 1192.0
+margin_bottom = 580.218
+rect_pivot_offset = Vector2( 102.101, 195.136 )
+focus_mode = 2
+custom_styles/focus = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "
+
+They're coming... by Zapac (c) copyright 2011 
+Licensed under a Creative Commons Attribution 
+Noncommercial  (3.0) license. 
+http://dig.ccmixter.org/files/Zapac/33647 
+ Ft: greg_baumont
+
+The darkest room by Zapac (c) copyright 2020 
+Licensed under a Creative Commons Attribution 
+Share-Alike  (3.0) license. 
+http://dig.ccmixter.org/files/Zapac/62453  
+
+Counting Faces in the Clouds by Martijn de Boer 
+(NiGiD) (c) copyright 2014 
+Licensed under a Creative Commons Attribution 
+Noncommercial  (3.0) license. 
+http://dig.ccmixter.org/files/NiGiD/47283 
+Ft: Stefan Kartenberg
+
+Transmissions by PorchCat (c) copyright 2008 
+Licensed under a Creative Commons Attribution 
+(3.0) license. 
+http://dig.ccmixter.org/files/PorchCat/14594 "
+meta_underlined = false
+tab_size = 3
+text = "
+
+They're coming... by Zapac (c) copyright 2011 
+Licensed under a Creative Commons Attribution 
+Noncommercial  (3.0) license. 
+http://dig.ccmixter.org/files/Zapac/33647 
+ Ft: greg_baumont
+
+The darkest room by Zapac (c) copyright 2020 
+Licensed under a Creative Commons Attribution 
+Share-Alike  (3.0) license. 
+http://dig.ccmixter.org/files/Zapac/62453  
+
+Counting Faces in the Clouds by Martijn de Boer 
+(NiGiD) (c) copyright 2014 
+Licensed under a Creative Commons Attribution 
+Noncommercial  (3.0) license. 
+http://dig.ccmixter.org/files/NiGiD/47283 
+Ft: Stefan Kartenberg
+
+Transmissions by PorchCat (c) copyright 2008 
+Licensed under a Creative Commons Attribution 
+(3.0) license. 
+http://dig.ccmixter.org/files/PorchCat/14594 "
+scroll_active = false
+selection_enabled = true
+
+[node name="Label6" type="Label" parent="Credits"]
+margin_left = 656.0
+margin_top = 8.0
+margin_right = 1183.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 2 )
+text = "* Musics"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -172,8 +220,12 @@ __meta__ = {
 [node name="TransitionUI" parent="." instance=ExtResource( 5 )]
 margin_top = -2.24493
 margin_bottom = -2.24493
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="button_up" from="StartButton" to="." method="_on_StartButton_button_up"]
-[connection signal="button_up" from="Credits/CloseCredits" to="." method="_on_CloseCredits_button_up"]
 [connection signal="button_up" from="OpenCredits" to="." method="_on_OpenCredits_button_up"]
 [connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="button_up" from="SkipButton" to="." method="_on_SkipButton_button_up"]
+[connection signal="button_up" from="Credits/CloseCredits" to="." method="_on_CloseCredits_button_up"]

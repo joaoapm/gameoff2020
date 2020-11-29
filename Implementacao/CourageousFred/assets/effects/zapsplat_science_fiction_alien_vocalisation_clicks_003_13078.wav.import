@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_science_fiction_alien_vocalisation_clicks_003_13078.wav-6b992932a17ab5b01d7f253bf2a34a9d.sample"
+
+[deps]
+
+source_file="res://assets/effects/zapsplat_science_fiction_alien_vocalisation_clicks_003_13078.wav"
+dest_files=[ "res://.import/zapsplat_science_fiction_alien_vocalisation_clicks_003_13078.wav-6b992932a17ab5b01d7f253bf2a34a9d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

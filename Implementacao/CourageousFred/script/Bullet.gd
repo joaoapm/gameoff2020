@@ -30,10 +30,13 @@ func init(charShot,targetChar,teamBullet,canDodge, typeBullet, _isArea):
 	if _isArea:
 		$granade.show()	
 	elif typeBullet == Super.TYPE_BULLET.BULLET:
+		$SoundCannon.play()
 		$bullet.show()
 	elif typeBullet == Super.TYPE_BULLET.ROCKET:
+		$SoundRocket.play()
 		$rocket.show() 
 	elif typeBullet == Super.TYPE_BULLET.PHASER:
+		$SoundPistol.play()
 		$phaser.show() 
 				
 	_canDodge = canDodge

@@ -8,6 +8,7 @@ func init( point) -> void:
 
 func _on_areaBullet_body_entered(body):
 	if body.get("team") != null && body.get("team") == Super.TEAM.ENEMY:
+		$AudioStreamPlayer.play()
 		body.queue_free()
 		hp = hp - 1
 		$ProgBar.setValue(hp)

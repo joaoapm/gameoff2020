@@ -1,25 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/EngGame.gd" type="Script" id=2]
 [ext_resource path="res://assets/backgrounds/gameover.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/Welbut__.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="DynamicFont" id=4]
-size = 23
-font_data = ExtResource( 4 )
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/effects/multimedia_game_sound_soft_dull_tone_lose_52987.wav" type="AudioStream" id=5]
 
 [node name="EngGame" type="Control"]
 script = ExtResource( 2 )
@@ -41,22 +26,19 @@ __meta__ = {
 position = Vector2( -50.2124, 5.00589 )
 texture = ExtResource( 3 )
 
-[node name="continueButton" type="Button" parent="."]
-margin_left = 552.122
-margin_top = 363.735
-margin_right = 768.122
-margin_bottom = 426.735
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+[node name="continueButton" parent="." instance=ExtResource( 4 )]
+margin_left = 579.228
+margin_top = 379.091
+margin_right = 788.228
+margin_bottom = 450.091
 text = "Restart"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TransitionUI" parent="." instance=ExtResource( 1 )]
 margin_right = 1285.0
 margin_bottom = 717.0
 rect_min_size = Vector2( 100, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="button_up" from="continueButton" to="." method="_on_continueButton_button_up"]

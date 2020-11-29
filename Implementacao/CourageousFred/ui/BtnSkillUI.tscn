@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://script/BtnSkillUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/block.png" type="Texture" id=2]
+[ext_resource path="res://assets/effects/zapsplat_office_calculator_button_press_single_001_11983.wav" type="AudioStream" id=3]
 
 [node name="BtnSkill" type="TextureButton"]
 margin_top = -1.0
@@ -31,4 +32,7 @@ texture = ExtResource( 2 )
 [node name="lblTime" type="Label" parent="block"]
 margin_right = 40.0
 margin_bottom = 14.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="button_up" from="." to="." method="_on_BtnSkill_button_up"]

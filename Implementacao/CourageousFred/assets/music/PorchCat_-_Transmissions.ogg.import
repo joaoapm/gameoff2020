@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PorchCat_-_Transmissions.ogg-0f897242a23c35870f42d64a098e4167.oggstr"
+
+[deps]
+
+source_file="res://assets/music/PorchCat_-_Transmissions.ogg"
+dest_files=[ "res://.import/PorchCat_-_Transmissions.ogg-0f897242a23c35870f42d64a098e4167.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

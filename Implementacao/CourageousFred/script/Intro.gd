@@ -14,8 +14,7 @@ func _on_StartButton_button_up():
 func _on_OpenCredits_button_up():
 	$Credits.show()
 	$OpenCredits.hide()
-
-
+ 
 func _on_CloseCredits_button_up():
 	$Credits.hide()
 	$OpenCredits.show()

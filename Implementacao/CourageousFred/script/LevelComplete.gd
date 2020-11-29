@@ -16,7 +16,9 @@ func _on_nextLevel_button_up():
 func _on_instruction_button_up():
 	$infos.hide()
 	$instructions.show()
+	$nextLevel.hide()
  
 func _on_back_button_up():
 	$infos.show()
 	$instructions.hide()
+	$nextLevel.show()

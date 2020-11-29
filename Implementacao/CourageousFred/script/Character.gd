@@ -28,6 +28,8 @@ var muzzle_velocity = 5
 const lifespan = 20
 var time_alive = 0.0 
 var hilicopter = false
+var soundAtack
+var voiceExplosion = true
 
 var idSkillCurrent = null
 var isCharTargetSkillCurrent = false
@@ -118,6 +120,18 @@ func setSelected(isSelected:bool) -> void :
 		if !isSelected:
 			$selected/range.hide()
 			rangeSkillCurrent = 0
+		else: 
+			var sfx
+			randomize() 
+			var random = int(rand_range(0, 100))
+			if random > 0 && random < 33: 
+				sfx = load( "res://assets/effects/zapsplat_science_fiction_alien_vocalisation_clicks_001_13076.wav") 
+			elif random > 33 && random < 66: 
+				sfx = load("res://assets/effects/zapsplat_science_fiction_alien_vocalisation_clicks_002_13077.wav" ) 
+			elif random > 66 && random < 100: 
+				sfx = load( "res://assets/effects/zapsplat_science_fiction_alien_vocalisation_clicks_003_13078.wav") 
+			$SoundSelect.stream  = sfx
+			$SoundSelect.play()	
 	
 func on_click_btn_skill(idSkill) -> void :
 	if !atacking && self == Super.selectedCharacter:
@@ -135,17 +149,22 @@ func resetActions() -> void:
 	$selected/range.hide()
 	rangeSkillCurrent = 0
 	
-func doAtack(point,block): 
+func doAtack(point,block,sound): 
 	if !atacking:
 		if point != null:
 			look_at(point,Vector3(0,1,0))
 		if block:
 			atacking = true
 		player.play("ATAQUE") 
+		if sound != null:
+			get_node(sound).play()
+			soundAtack = sound
 	
 func endAtack():
 	atacking = false
 	player.play("ESPERANDO")	
+	if soundAtack != null:
+		get_node(soundAtack).stop()
 	
 func showAtackProgress(time):
 	$ProgBarCoolDown.start(time)	
@@ -172,7 +191,8 @@ func _on_damageArea_body_entered(body):
 			return
 		body.queue_free()
 		var particle = load("res://comp/Particles.tscn").instance()
-		Super.charactersNode.get_parent().add_child(particle)
+		Super.charactersNode.get_parent().add_child(particle) 
+		particle.init(self.voiceExplosion)
 		particle.global_transform.origin = $mesh.global_transform.origin
 		
 		particle.emitting = true

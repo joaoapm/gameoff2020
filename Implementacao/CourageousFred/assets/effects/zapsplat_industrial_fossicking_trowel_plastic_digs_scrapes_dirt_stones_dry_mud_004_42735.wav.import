@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_industrial_fossicking_trowel_plastic_digs_scrapes_dirt_stones_dry_mud_004_42735.wav-21ebc5685edceee7cb65029b2c420532.sample"
+
+[deps]
+
+source_file="res://assets/effects/zapsplat_industrial_fossicking_trowel_plastic_digs_scrapes_dirt_stones_dry_mud_004_42735.wav"
+dest_files=[ "res://.import/zapsplat_industrial_fossicking_trowel_plastic_digs_scrapes_dirt_stones_dry_mud_004_42735.wav-21ebc5685edceee7cb65029b2c420532.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_office_calculator_button_press_single_001_11983.wav-c98b8dda3fc235208a6e6c9b08241501.sample"
+
+[deps]
+
+source_file="res://assets/effects/zapsplat_office_calculator_button_press_single_001_11983.wav"
+dest_files=[ "res://.import/zapsplat_office_calculator_button_press_single_001_11983.wav-c98b8dda3fc235208a6e6c9b08241501.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

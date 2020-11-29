@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/LevelComplete.gd" type="Script" id=2]
@@ -13,37 +13,19 @@
 [ext_resource path="res://assets/img/instrc_1.png" type="Texture" id=11]
 [ext_resource path="res://assets/img/instrc_2.png" type="Texture" id=12]
 [ext_resource path="res://assets/img/instrc_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/music/PorchCat_-_Transmissions.ogg" type="AudioStream" id=14]
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 21
-font_data = ExtResource( 4 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="DynamicFont" id=5]
-size = 28
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
 font_data = ExtResource( 4 )
 
 [node name="LevelComplete" type="Control"]
@@ -56,121 +38,19 @@ __meta__ = {
 position = Vector2( 640.537, 362.723 )
 texture = ExtResource( 3 )
 
-[node name="instructions" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label10" type="Label" parent="instructions"]
-margin_left = 210.0
-margin_top = 71.0
-margin_right = 1150.0
-margin_bottom = 200.0
-rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
-text = "The game is very simple, you must complete  the missions. To do this, you must spawn 
-available characters, each character has a unique ability, use them to protect 
-your units and attack enemies. Select the main character Fred to spawn  other 
-characters. Good luck!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label11" type="Label" parent="instructions"]
-margin_left = 221.0
-margin_top = 452.112
-margin_right = 403.0
-margin_bottom = 614.112
-rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
-text = "Select Fred and 
-then choose
-the character
- you want to 
-spawn"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label12" type="Label" parent="instructions"]
-margin_left = 519.133
-margin_top = 453.888
-margin_right = 768.133
-margin_bottom = 524.888
-rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
-text = "You must spawn within
- the range"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label13" type="Label" parent="instructions"]
-margin_left = 872.339
-margin_top = 455.368
-margin_right = 1121.34
-margin_bottom = 526.368
-rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
-text = "Select the characters
-to acess the skills menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back" type="Button" parent="instructions"]
-margin_left = 897.0
-margin_top = 638.0
-margin_right = 1083.0
-margin_bottom = 697.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="instrc_2" type="Sprite" parent="instructions/back"]
-position = Vector2( -247.164, -306.219 )
-scale = Vector2( 0.583839, 0.583839 )
-texture = ExtResource( 12 )
-
-[node name="instrc_1" type="Sprite" parent="instructions/back"]
-position = Vector2( -571.182, -303.8 )
-scale = Vector2( 0.583839, 0.583839 )
-texture = ExtResource( 11 )
-
-[node name="instrc_3" type="Sprite" parent="instructions"]
-position = Vector2( 1005.53, 334.378 )
-scale = Vector2( 0.605692, 0.605692 )
-texture = ExtResource( 13 )
-
-[node name="nextLevel" type="Button" parent="."]
-margin_left = 1089.53
-margin_top = 637.727
-margin_right = 1242.53
-margin_bottom = 696.727
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Go!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="instruction" parent="." instance=ExtResource( 15 )]
+margin_left = 861.0
+margin_top = 627.0
+margin_right = 1046.0
+margin_bottom = 686.0
+text = "How to play"
 
 [node name="infos" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="lvl1" type="Control" parent="infos"]
 visible = false
@@ -183,7 +63,7 @@ margin_left = 270.0
 margin_top = 38.0
 margin_right = 496.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Level 1"
 __meta__ = {
@@ -195,7 +75,7 @@ margin_left = 269.0
 margin_top = 153.0
 margin_right = 1128.0
 margin_bottom = 198.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Your mission is to defeat enemies and escape from the 
 mine!"
@@ -209,7 +89,7 @@ margin_top = 293.0
 margin_right = 400.0
 margin_bottom = 338.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Characters available:"
 __meta__ = {
@@ -222,7 +102,7 @@ margin_top = 523.0
 margin_right = 346.0
 margin_bottom = 640.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "      Fred
 Spawn new 
@@ -237,7 +117,7 @@ margin_top = 526.0
 margin_right = 727.0
 margin_bottom = 643.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "                Digger
   Creates barriers that 
@@ -252,7 +132,7 @@ margin_top = 526.98
 margin_right = 1027.09
 margin_bottom = 643.98
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Gunslinger
 Hits a random
@@ -287,7 +167,7 @@ margin_left = 270.0
 margin_top = 38.0
 margin_right = 496.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Level 2"
 __meta__ = {
@@ -299,7 +179,7 @@ margin_left = 269.0
 margin_top = 135.0
 margin_right = 1187.0
 margin_bottom = 267.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "In order to  go the planet Azulim, you must use the machine 
 that connects the two planets.  Your mission is to stay 
@@ -314,7 +194,7 @@ margin_top = 301.0
 margin_right = 400.0
 margin_bottom = 346.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Characters available:"
 __meta__ = {
@@ -327,7 +207,7 @@ margin_top = 506.0
 margin_right = 271.0
 margin_bottom = 623.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "      Fred
 Spawn new 
@@ -342,7 +222,7 @@ margin_top = 504.0
 margin_right = 587.0
 margin_bottom = 621.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "                Digger
   Creates barriers that 
@@ -357,7 +237,7 @@ margin_top = 514.98
 margin_right = 817.095
 margin_bottom = 631.98
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Gunslinger
 Hits a random
@@ -372,7 +252,7 @@ margin_top = 507.0
 margin_right = 1056.0
 margin_bottom = 624.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Gunslinger
 Hits  a random
@@ -387,7 +267,7 @@ margin_top = 503.0
 margin_right = 1262.89
 margin_bottom = 620.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Doctor
 Heals other 
@@ -432,7 +312,7 @@ margin_left = 242.0
 margin_top = 29.6216
 margin_right = 476.0
 margin_bottom = 112.622
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Level 3"
 __meta__ = {
@@ -444,7 +324,7 @@ margin_left = 235.0
 margin_top = 121.0
 margin_right = 1153.0
 margin_bottom = 298.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Finally you arrived on the planet Azulim, you are the first 
 Vermelim to arrive on the planet Azulim, and now you must 
@@ -460,7 +340,7 @@ margin_top = 315.0
 margin_right = 400.0
 margin_bottom = 360.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Characters available:"
 __meta__ = {
@@ -473,7 +353,7 @@ margin_top = 497.0
 margin_right = 260.0
 margin_bottom = 614.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "      Fred
 Spawn new 
@@ -488,7 +368,7 @@ margin_top = 498.345
 margin_right = 576.419
 margin_bottom = 615.345
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "                Digger
   Creates barriers that 
@@ -503,7 +383,7 @@ margin_top = 498.73
 margin_right = 680.189
 margin_bottom = 615.729
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Gunslinger
 Hits a random
@@ -518,7 +398,7 @@ margin_top = 496.0
 margin_right = 865.0
 margin_bottom = 613.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "  Rocketeer
 Hihts flying 
@@ -533,7 +413,7 @@ margin_top = 496.413
 margin_right = 1024.0
 margin_bottom = 613.413
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "   Doctor
 Heals other 
@@ -548,7 +428,7 @@ margin_top = 496.65
 margin_right = 1264.9
 margin_bottom = 625.65
 rect_pivot_offset = Vector2( 259.983, 22.5 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "     Granadier
 Throw  granades 
@@ -588,24 +468,112 @@ position = Vector2( 602.761, 438.095 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 7 )
 
-[node name="instruction" type="Button" parent="infos"]
-margin_left = 897.0
-margin_top = 638.0
-margin_right = 1083.0
-margin_bottom = 697.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Instructions"
+[node name="instructions" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label10" type="Label" parent="instructions"]
+margin_left = 210.0
+margin_top = 71.0
+margin_right = 1150.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 259.983, 22.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
+text = "The game is very simple, you must complete  the missions. To do this, you must spawn 
+available characters, each character has a unique ability, use them to protect 
+your units and attack enemies. Select the main character Fred to spawn  other 
+characters. Good luck!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="instructions"]
+margin_left = 221.0
+margin_top = 452.112
+margin_right = 403.0
+margin_bottom = 614.112
+rect_pivot_offset = Vector2( 259.983, 22.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
+text = "Select Fred and 
+then choose
+the character
+ you want to 
+spawn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label12" type="Label" parent="instructions"]
+margin_left = 519.133
+margin_top = 453.888
+margin_right = 768.133
+margin_bottom = 524.888
+rect_pivot_offset = Vector2( 259.983, 22.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
+text = "You must spawn within
+ the range"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="instructions"]
+margin_left = 872.339
+margin_top = 455.368
+margin_right = 1121.34
+margin_bottom = 526.368
+rect_pivot_offset = Vector2( 259.983, 22.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
+text = "Select the characters
+to acess the skills menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="instrc_1" type="Sprite" parent="instructions"]
+position = Vector2( 311.654, 332.321 )
+scale = Vector2( 0.605692, 0.605692 )
+texture = ExtResource( 11 )
+
+[node name="instrc_2" type="Sprite" parent="instructions"]
+position = Vector2( 645.895, 333.323 )
+scale = Vector2( 0.605692, 0.602207 )
+texture = ExtResource( 12 )
+
+[node name="instrc_3" type="Sprite" parent="instructions"]
+position = Vector2( 1005.53, 334.378 )
+scale = Vector2( 0.605692, 0.605692 )
+texture = ExtResource( 13 )
+
+[node name="back" parent="instructions" instance=ExtResource( 15 )]
+margin_left = 861.0
+margin_top = 627.0
+margin_right = 1046.0
+margin_bottom = 686.0
+text = "Close"
+
+[node name="nextLevel" parent="." instance=ExtResource( 15 )]
+margin_left = 1053.0
+margin_top = 627.0
+margin_right = 1238.0
+margin_bottom = 686.0
+text = "GO!"
 
 [node name="TransitionUI" parent="." instance=ExtResource( 1 )]
 margin_right = 1285.0
 margin_bottom = 717.0
 rect_min_size = Vector2( 100, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true
+[connection signal="button_up" from="instruction" to="." method="_on_instruction_button_up"]
 [connection signal="button_up" from="instructions/back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="nextLevel" to="." method="_on_nextLevel_button_up"]
-[connection signal="button_up" from="infos/instruction" to="." method="_on_instruction_button_up"]

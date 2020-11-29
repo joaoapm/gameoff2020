@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Zapac_-_The_darkest_room.ogg-feec073f4ee80069f8941f9618fb9c1d.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Zapac_-_The_darkest_room.ogg"
+dest_files=[ "res://.import/Zapac_-_The_darkest_room.ogg-feec073f4ee80069f8941f9618fb9c1d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

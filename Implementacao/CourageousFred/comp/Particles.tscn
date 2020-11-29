@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/particles/smoke.png" type="Texture" id=1]
+[ext_resource path="res://assets/effects/esm_8bit_explosion_medium_with_voice_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.wav" type="AudioStream" id=2]
+[ext_resource path="res://script/Particles.gd" type="Script" id=3]
+[ext_resource path="res://assets/effects/esm_8bit_explosion_medium_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -45,3 +48,11 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
+script = ExtResource( 3 )
+
+[node name="explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="voiceExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.944

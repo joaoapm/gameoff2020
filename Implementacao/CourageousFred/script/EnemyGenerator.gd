@@ -53,17 +53,20 @@ func spawEnemy():
 			characterAdd.init(Super.CHARACTERS.TOWER,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.ROCKET
 			characterAdd.canDodge = false 
+			characterAdd.voiceExplosion = false
 			addEnemy(characterAdd, place)
 		elif random >= 50 &&  random <= 100 :
 			characterAdd.init(Super.CHARACTERS.CANNON,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
 			characterAdd.canDodge = true 
+			characterAdd.voiceExplosion = false
 			addEnemy(characterAdd, place)
 		elif random > 100 && random <= 125 :
 			characterAdd.init(Super.CHARACTERS.HELICOPTER,$a1.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
 			characterAdd.canDodge = true 
 			characterAdd.isAutoMove = true
+			characterAdd.voiceExplosion = false
 			characterAdd.hilicopter = true
 			addEnemy(characterAdd, place)
 			

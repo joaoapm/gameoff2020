@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://script/Character.gd" type="Script" id=1]
 [ext_resource path="res://comp/ProgBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/effects/industrial_impacts_hammer_wood_fixed_beam_001.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/effects/zapsplat_industrial_fossicking_trowel_plastic_digs_scrapes_dirt_stones_dry_mud_004_42735.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.37999
@@ -68,4 +70,15 @@ transform = Transform( 1.13468, 0, 0, 0, 1.26821, 0, 0, 0, 0.983276, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="damageArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41789, 0 )
 shape = SubResource( 6 )
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="."]
+volume_db = -9.797
+
+[node name="SoundHammer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -11.304
+
+[node name="SoundDig" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -11.304
 [connection signal="body_entered" from="damageArea" to="." method="_on_damageArea_body_entered"]

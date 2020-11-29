@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/esm_8bit_explosion_medium_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.wav-4b6856701d322d15692d8c7201bae297.sample"
+
+[deps]
+
+source_file="res://assets/effects/esm_8bit_explosion_medium_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.wav"
+dest_files=[ "res://.import/esm_8bit_explosion_medium_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.wav-4b6856701d322d15692d8c7201bae297.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

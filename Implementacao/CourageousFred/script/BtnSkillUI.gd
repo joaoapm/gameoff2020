@@ -14,6 +14,7 @@ func on_verify_cooldown():
 					$block.hide()
 		
 func _on_BtnSkill_button_up():
+	$AudioStreamPlayer.play()
 	Super.emit_signal("on_click_btn_skill",id)
 	Super.menuAction.unPress()
 

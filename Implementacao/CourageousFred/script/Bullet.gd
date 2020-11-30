@@ -14,21 +14,23 @@ func _physics_process(delta):
 	if _canDodge: 
 		look_at(transform.origin + velocity.normalized(), Vector3.UP)
 		transform.origin += 4 *  velocity * delta
-		time_alive += delta
-		if time_alive > lifespan:
-			queue_free() 
 				
 	if target != null:   
 		var	dir = (target.get_global_transform().origin  - get_global_transform().origin).normalized()	
 		global_translate(dir*(100 * delta))	 
 		$bullet.look_at(dir, Vector3.UP) 
- 
+
+	time_alive += delta
+	if time_alive > lifespan:
+		queue_free()  
+		
 func init(charShot,targetChar,teamBullet,canDodge, typeBullet, _isArea):
 	
 	isArea = _isArea
 	
 	if _isArea:
 		$granade.show()	
+		$SoundCannon.play()
 	elif typeBullet == Super.TYPE_BULLET.BULLET:
 		$SoundCannon.play()
 		$bullet.show()

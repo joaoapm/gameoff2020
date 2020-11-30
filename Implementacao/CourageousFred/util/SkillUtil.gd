@@ -72,9 +72,10 @@ func GUNS_SHOT(character,point,id) :
 		character.doAtack(enemy.get_global_transform().origin, false, null)
 	
 func IA_SHOT(character,target) :  
-	var bulledAdd = load("res://comp/Bullet.tscn").instance() 
-	character.doAtack(target.get_global_transform().origin, false, null) 
-	bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet,false)
+	if target!= null:
+		var bulledAdd = load("res://comp/Bullet.tscn").instance() 
+		character.doAtack(target.get_global_transform().origin, false, null) 
+		bulledAdd.init(character,target,Super.TEAM.ENEMY,character.canDodge,character.typeBullet,false)
 
 func CURE(character,point,id,target) :
 	if point == null :

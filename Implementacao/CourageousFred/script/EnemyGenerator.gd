@@ -11,7 +11,12 @@ var maxLvl2 = 7
 var nbLevel3 = 20
 var maxLvl3 = 8
 
+var varTimerSpaw=7
+var varTimerAtack=2.5
+
 var places = []
+
+
 
 func init():
 	
@@ -20,15 +25,19 @@ func init():
 	spawEnemy()
 	spawEnemy()
 	
+	if Super.level == 3:
+		varTimerSpaw=6
+		varTimerAtack=6	
+	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
-	timer.set_wait_time(7)
+	timer.set_wait_time(varTimerSpaw)
 	add_child(timer) 
 	timer.start() 
 
 	var timerAtack = Timer.new()
 	timerAtack.connect("timeout",self,"atack") 
-	timerAtack.set_wait_time(2.5)
+	timerAtack.set_wait_time(varTimerAtack)
 	add_child(timerAtack) 
 	timerAtack.start() 	
  
@@ -68,7 +77,8 @@ func spawEnemy():
 			characterAdd.isAutoMove = true
 			characterAdd.voiceExplosion = false
 			characterAdd.hilicopter = true
-			addEnemy(characterAdd, place)
+			places.append(place)
+			addEnemy(characterAdd, $a1)
 			
 func addEnemy(characterAdd, place):
 		characterAdd.enemyPlace = place
@@ -151,4 +161,4 @@ func verifyEndLevel(deadEnemy):
 		nbLevel3 = nbLevel3 -1; 
 		if  nbLevel3 == 0:
 			Super.transitionUI.fadein_transition("res://scenes/GameFinal.tscn")
-			Super.level = 4
+			Super.level = 1

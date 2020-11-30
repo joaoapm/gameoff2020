@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ui/TransitionUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/LevelComplete.gd" type="Script" id=2]
@@ -15,13 +15,15 @@
 [ext_resource path="res://assets/img/instrc_3.png" type="Texture" id=13]
 [ext_resource path="res://assets/music/PorchCat_-_Transmissions.ogg" type="AudioStream" id=14]
 [ext_resource path="res://ui/Button.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/img/machine.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/boss.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 23
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -163,10 +165,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="infos/lvl2"]
-margin_left = 270.0
-margin_top = 38.0
-margin_right = 496.0
-margin_bottom = 121.0
+margin_left = 222.91
+margin_top = 28.3182
+margin_right = 456.91
+margin_bottom = 111.318
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Level 2"
@@ -175,10 +177,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="infos/lvl2"]
-margin_left = 269.0
-margin_top = 135.0
-margin_right = 1187.0
-margin_bottom = 267.0
+margin_left = 220.228
+margin_top = 96.2728
+margin_right = 1138.23
+margin_bottom = 228.273
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "In order to  go the planet Azulim, you must use the machine 
@@ -203,9 +205,9 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="infos/lvl2"]
 margin_left = 110.0
-margin_top = 506.0
+margin_top = 512.0
 margin_right = 271.0
-margin_bottom = 623.0
+margin_bottom = 629.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -218,9 +220,9 @@ __meta__ = {
 
 [node name="Label5" type="Label" parent="infos/lvl2"]
 margin_left = 306.0
-margin_top = 504.0
+margin_top = 510.0
 margin_right = 587.0
-margin_bottom = 621.0
+margin_bottom = 627.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -233,9 +235,9 @@ __meta__ = {
 
 [node name="Label6" type="Label" parent="infos/lvl2"]
 margin_left = 638.095
-margin_top = 514.98
+margin_top = 520.98
 margin_right = 817.095
-margin_bottom = 631.98
+margin_bottom = 637.98
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -248,9 +250,9 @@ __meta__ = {
 
 [node name="Label7" type="Label" parent="infos/lvl2"]
 margin_left = 878.0
-margin_top = 507.0
+margin_top = 513.0
 margin_right = 1056.0
-margin_bottom = 624.0
+margin_bottom = 630.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -263,9 +265,9 @@ __meta__ = {
 
 [node name="Label8" type="Label" parent="infos/lvl2"]
 margin_left = 1109.89
-margin_top = 503.0
+margin_top = 509.0
 margin_right = 1262.89
-margin_bottom = 620.0
+margin_bottom = 626.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -276,28 +278,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="machine" type="Sprite" parent="infos/lvl2"]
+position = Vector2( 1080.67, 224.502 )
+scale = Vector2( 0.497405, 0.497405 )
+texture = ExtResource( 16 )
+
 [node name="DIGGER" type="Sprite" parent="infos/lvl2"]
-position = Vector2( 440.184, 436.779 )
+position = Vector2( 440.184, 443.66 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 6 )
 
 [node name="FRED" type="Sprite" parent="infos/lvl2"]
-position = Vector2( 191.419, 433.109 )
+position = Vector2( 191.419, 442.109 )
 scale = Vector2( 0.799548, 0.799548 )
 texture = ExtResource( 5 )
 
 [node name="DOCTOR" type="Sprite" parent="infos/lvl2"]
-position = Vector2( 1172.64, 437.648 )
+position = Vector2( 1172.64, 444.529 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 9 )
 
 [node name="ROCKETER" type="Sprite" parent="infos/lvl2"]
-position = Vector2( 954.329, 436.075 )
+position = Vector2( 954.329, 442.956 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
 
 [node name="GUNSLINGER" type="Sprite" parent="infos/lvl2"]
-position = Vector2( 712.898, 436.905 )
+position = Vector2( 712.898, 443.786 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 7 )
 
@@ -319,26 +326,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="boss" type="Sprite" parent="infos/lvl3"]
+position = Vector2( 1048.5, 203.402 )
+scale = Vector2( 1.69001, 1.69001 )
+texture = ExtResource( 17 )
+
 [node name="Label2" type="Label" parent="infos/lvl3"]
 margin_left = 235.0
-margin_top = 121.0
+margin_top = 115.0
 margin_right = 1153.0
-margin_bottom = 298.0
+margin_bottom = 328.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "Finally you arrived on the planet Azulim, you are the first 
 Vermelim to arrive on the planet Azulim, and now you must 
 fight.
-Your mission is to destroy all the enemies you can."
+Your mission is to defeat the Azulim Boss, he can shot
+you, but you can't shot him, so destroy as many enemies
+you can!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="infos/lvl3"]
 margin_left = 57.0
-margin_top = 315.0
+margin_top = 348.502
 margin_right = 400.0
-margin_bottom = 360.0
+margin_bottom = 393.502
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
@@ -567,8 +581,9 @@ margin_bottom = 686.0
 text = "GO!"
 
 [node name="TransitionUI" parent="." instance=ExtResource( 1 )]
+margin_top = -2.11893
 margin_right = 1285.0
-margin_bottom = 717.0
+margin_bottom = 714.881
 rect_min_size = Vector2( 100, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

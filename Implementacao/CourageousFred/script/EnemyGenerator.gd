@@ -6,17 +6,17 @@ var nbLevel1 = 10
 var maxLvl1 = 4
 
 var nbLevel2 = 1000
-var maxLvl2 = 7
+var maxLvl2 = 6
 
 var nbLevel3 = 20
 var maxLvl3 = 8
 
-var varTimerSpaw=7
+var varTimerSpaw=5
 var varTimerAtack=2.5
 
 var places = []
-
-
+var timer 
+var timerAtack 
 
 func init():
 	
@@ -25,17 +25,16 @@ func init():
 	spawEnemy()
 	spawEnemy()
 	
-	if Super.level == 3:
-		varTimerSpaw=6
+	if Super.level == 3: 
 		varTimerAtack=6	
-	
-	var timer = Timer.new()
+		
+	timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
 	timer.set_wait_time(varTimerSpaw)
 	add_child(timer) 
 	timer.start() 
 
-	var timerAtack = Timer.new()
+	timerAtack = Timer.new()
 	timerAtack.connect("timeout",self,"atack") 
 	timerAtack.set_wait_time(varTimerAtack)
 	add_child(timerAtack) 
@@ -51,6 +50,12 @@ func spawEnemy():
 		var characterAdd = load("res://comp/Character.tscn").instance()	
 		characterAdd.isEnemy = true
 		
+		if timer != null:
+			if places.size() <= 4:
+				timer.set_wait_time(2)
+			else:
+				timer.set_wait_time(5)
+		 
 		randomize() 
 		var maxRam
 		if Super.level == 1:
@@ -64,19 +69,20 @@ func spawEnemy():
 			characterAdd.canDodge = false 
 			characterAdd.voiceExplosion = false
 			addEnemy(characterAdd, place)
-		elif random >= 50 &&  random <= 100 :
+		elif random >= 50 &&  random <= 110 :
 			characterAdd.init(Super.CHARACTERS.CANNON,place.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
 			characterAdd.canDodge = true 
 			characterAdd.voiceExplosion = false
 			addEnemy(characterAdd, place)
-		elif random > 100 && random <= 125 :
+		elif random > 115 && random <= 125 :
 			characterAdd.init(Super.CHARACTERS.HELICOPTER,$a1.transform.origin) 
 			characterAdd.typeBullet = Super.TYPE_BULLET.BULLET
 			characterAdd.canDodge = true 
 			characterAdd.isAutoMove = true
 			characterAdd.voiceExplosion = false
 			characterAdd.hilicopter = true
+			characterAdd.hp = 1
 			places.append(place)
 			addEnemy(characterAdd, $a1)
 			
@@ -88,7 +94,7 @@ func addEnemy(characterAdd, place):
 func atack():
 	for i in $enemies.get_child_count():
 		randomize() 
-		var random = rand_range(0, 150)
+		var random = rand_range(0, 200)
 		if random < 50:
 			var target = getRandomChar()
 			var charAtack = getRandomEnemy()

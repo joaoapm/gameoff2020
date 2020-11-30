@@ -50,7 +50,7 @@ func GER_BARRIER(character,point,id) :
 		character.idSkillCurrent = id 
 		character.showRange(1)
 	else:	
-		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 13, "character": character})
+		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 16, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true,"SoundDig")
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
@@ -65,7 +65,7 @@ func GER_BARRIER(character,point,id) :
 func GUNS_SHOT(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemy()
 	if enemy != null:
-		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
+		Super.COOLDOWN.append({"id": id, "time" : 3, "character": character})
 		Super.menuAction.showSubActions()
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET,false)
@@ -106,7 +106,7 @@ func AERIAL_ATACK(character,point,id) :
 func GRANADE(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemy()
 	if enemy != null:
-		Super.COOLDOWN.append({"id": id, "time" : 5, "character": character})
+		Super.COOLDOWN.append({"id": id, "time" : 10, "character": character})
 		Super.menuAction.showSubActions()
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET,true)

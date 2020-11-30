@@ -87,10 +87,11 @@ func _process(delta):
 			actualPath += 1
 			actualPoint = null
 			
-		if  (changePath) or (actualPath < path.size()):  
-			actualPoint = path[actualPath]
-			changePath = false
- 
+		if  (changePath) or (actualPath < path.size()): 
+			if !(actualPath > path.size()) :
+				actualPoint = path[actualPath]
+				changePath = false
+	 
 		else: if 	actualPath == path.size():
 			actualPath = 1 
 			path = null
@@ -184,7 +185,7 @@ func getTarget():
 	return $mesh.get_child(0).get_node("target")							
 
 func _on_damageArea_body_entered(body):
-	if body != null && body.get("team") != null &&  body != self && ((isEnemy && body.team == Super.TEAM.PLAYER) || (!isEnemy && body.team == Super.TEAM.ENEMY)):
+	if body != null && body.get("team") != null &&  body != self && ((isEnemy && body.team == Super.TEAM.PLAYER) || (!isEnemy && body.team == Super.TEAM.ENEMY)) && hp >= 1:
 		if body.isArea:
 			body.isArea = false
 			body.processAreaAtack() 
@@ -203,15 +204,21 @@ func _on_damageArea_body_entered(body):
 				idSkillCurrent = null 
 			set_process(false)
 			isDead = true
-			player.play("MORTO")
-			yield(get_tree().create_timer(1.0), "timeout")
-			queue_free()
-			if idChar == Super.CHARACTERS.FRED:
-				Super.transitionUI.fadein_transition("res://scenes/EngGame.tscn")
-			if isEnemy:
-				Super.enemyNode.verifyEndLevel(self)	
-			else:
-				Super.menuAction.hide()	
+			player.play("MORTO") 
+			var timer = Timer.new()
+			timer.connect("timeout",self,"afterHit") 
+			timer.set_wait_time(1)
+			add_child(timer) 
+			timer.start() 
+	
+func afterHit():
+	queue_free()
+	if idChar == Super.CHARACTERS.FRED:
+		Super.transitionUI.fadein_transition("res://scenes/EngGame.tscn")
+	if isEnemy:
+		Super.enemyNode.verifyEndLevel(self)	
+	else:
+		Super.menuAction.hide()		
 
 func addLife(vlAdd):
 	hp += 1 

@@ -21,13 +21,13 @@ flags_transparent = true
 albedo_color = Color( 0.298039, 0.501961, 0.278431, 0.619608 )
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 1.75632, 3.43205, 1.58868 )
+extents = Vector3( 1.75632, 4.1953, 2.1565 )
 
 [node name="Character" type="KinematicBody"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.1417, 0 )
+transform = Transform( 1.18039, 0, 0, 0, -2.79418e-08, 0.639234, 0, -1.03464, -4.52255e-08, 0, 4.94884, 0 )
 shape = SubResource( 1 )
 
 [node name="selected" type="MeshInstance" parent="."]
@@ -68,7 +68,7 @@ layers = 2
 transform = Transform( 1.13468, 0, 0, 0, 1.26821, 0, 0, 0, 0.983276, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="damageArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41789, 0 )
+transform = Transform( 1.39139, 0, 0, 0, 1, 0, 0, 0, 1.41845, 0, 3.85111, 0 )
 shape = SubResource( 6 )
 
 [node name="SoundSelect" type="AudioStreamPlayer" parent="."]

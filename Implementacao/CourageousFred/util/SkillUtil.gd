@@ -37,13 +37,20 @@ func GER_CHAR(character,point,id) -> void :
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true,"SoundHammer")
 		character.showAtackProgress(Super.COOLDOWN_SKILL)
-		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		if character.idSkillCurrent != null:
-			character.idSkillCurrent = null
-			character.endAtack()
-			var characterAdd = load("res://comp/Character.tscn").instance()	
-			characterAdd.init(persoGer,point)
-			Super.charactersNode.add_child(characterAdd)
+		var timer = Timer.new()
+		timer.connect("timeout",self,"afterGerChar",[character, point, persoGer]) 
+		timer.set_wait_time(Super.COOLDOWN_SKILL)
+		timer.one_shot = true
+		character.add_child(timer) 
+		timer.start() 
+
+func afterGerChar(character, point, persoGer):
+	if character.idSkillCurrent != null:
+		character.idSkillCurrent = null
+		character.endAtack()
+		var characterAdd = load("res://comp/Character.tscn").instance()	
+		characterAdd.init(persoGer,point)
+		Super.charactersNode.add_child(characterAdd)	
 
 func GER_BARRIER(character,point,id) :
 	if point == null :
@@ -53,15 +60,22 @@ func GER_BARRIER(character,point,id) :
 		Super.COOLDOWN.append({"id": character.idSkillCurrent, "time" : 16, "character": character})
 		Super.menuAction.showSubActions()
 		character.doAtack(point,true,"SoundDig")
-		character.showAtackProgress(Super.COOLDOWN_SKILL)
-		yield(character.get_tree().create_timer(Super.COOLDOWN_SKILL), "timeout")
-		if character != null && character.idSkillCurrent != null:
-			character.endAtack() 
-			character.idSkillCurrent = null
-			var barrierAdd = load("res://comp/Barrier.tscn").instance()
-			barrierAdd.init(point)	
-			Super.charactersNode.add_child(barrierAdd)
+		character.showAtackProgress(Super.COOLDOWN_SKILL) 
+		var timer = Timer.new()
+		timer.connect("timeout",self,"afterGerBarrier", [character, point]) 
+		timer.set_wait_time(Super.COOLDOWN_SKILL)
+		character.add_child(timer)
+		timer.one_shot = true
+		timer.start() 
 
+func afterGerBarrier(character, point): 
+	if character != null && character.idSkillCurrent != null:
+		character.endAtack() 
+		character.idSkillCurrent = null
+		var barrierAdd = load("res://comp/Barrier.tscn").instance()
+		barrierAdd.init(point)	
+		Super.charactersNode.add_child(barrierAdd)
+			
 func GUNS_SHOT(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemy()
 	if enemy != null:
@@ -89,8 +103,11 @@ func CURE(character,point,id,target) :
 		character.isCharTargetSkillCurrent = false
 		character.doAtack(target.get_global_transform().origin,true, null)
 		target.addLife(1)
-		yield(character.get_tree().create_timer(1), "timeout")
-		character.endAtack() 
+		var timer = Timer.new()
+		timer.connect("timeout",self,"afterAtack") 
+		timer.set_wait_time(1)
+		add_child(timer) 
+		timer.start() 
 
 func AERIAL_ATACK(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemyAerial()
@@ -100,8 +117,11 @@ func AERIAL_ATACK(character,point,id) :
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.ROCKET, false)
 		character.doAtack(enemy.get_global_transform().origin, true, null)
-		yield(character.get_tree().create_timer(1), "timeout")
-		character.endAtack() 
+		var timer = Timer.new()
+		timer.connect("timeout",self,"afterAtack") 
+		timer.set_wait_time(1)
+		add_child(timer) 
+		timer.start() 
 
 func GRANADE(character,point,id) : 
 	var enemy = Super.enemyNode.getRandomEnemy()
@@ -111,3 +131,7 @@ func GRANADE(character,point,id) :
 		var bulledAdd = load("res://comp/Bullet.tscn").instance()			
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.BULLET,true)
 		character.doAtack(enemy.get_global_transform().origin, false, null)
+
+func afterAtack(character):
+	if character != null:
+		character.endAtack() 

@@ -5,7 +5,7 @@ func _ready():
 	Super.navMap = $Map.getNavMap()
 	Super.enemyNode = $Map.getEnemyGenerator()
 	Super.charactersNode = $Map.getCharactersNode()
-	
+	Super.selectedCharacter = null
 	Super.menuAction = $MenuAction
 	Super.transitionUI = $TransitionUI
 	

@@ -1,6 +1,6 @@
 extends Spatial
 
-var skillUtil = preload("res://util/SkillUtil.gd").new()
+var skillUtil = load("res://util/SkillUtil.gd").new()
 
 var idChar = Super.CHARACTERS.FRED 
 var hp:int = 15
@@ -114,7 +114,7 @@ func move(pathMove):
 		set_process(true)		
 		
 func setSelected(isSelected:bool) -> void :
-	if !isEnemy:
+	if !isEnemy && hp >= 1:
 		action = Super.ACTIONS.MOVE
 		$selected.visible = isSelected;	
 		Super.menuAction.showSubActions()
@@ -208,17 +208,20 @@ func _on_damageArea_body_entered(body):
 			var timer = Timer.new()
 			timer.connect("timeout",self,"afterHit") 
 			timer.set_wait_time(1)
+			timer.one_shot = true
 			add_child(timer) 
 			timer.start() 
 	
 func afterHit():
+	if Super.selectedCharacter == self:
+		Super.selectedCharacter = null
+		if !isEnemy:
+			Super.menuAction.hide()	 	
 	queue_free()
 	if idChar == Super.CHARACTERS.FRED:
 		Super.transitionUI.fadein_transition("res://scenes/EngGame.tscn")
 	if isEnemy:
-		Super.enemyNode.verifyEndLevel(self)	
-	else:
-		Super.menuAction.hide()		
+		Super.enemyNode.verifyEndLevel(self)
 
 func addLife(vlAdd):
 	hp += 1 

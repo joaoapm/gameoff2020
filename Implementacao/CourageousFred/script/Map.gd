@@ -86,7 +86,7 @@ func clickedCharacter() -> Node :
 	var space_state = get_world().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to)
 
-	if selection.size() > 0:
+	if selection != null && selection.size() > 0:
 		return selection.collider
 	else :
 		return null

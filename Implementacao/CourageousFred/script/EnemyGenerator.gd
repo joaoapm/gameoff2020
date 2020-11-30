@@ -125,10 +125,11 @@ func getRandomEnemyAerial() -> Node:
 		
 func getRandomChar() -> Node:
 	randomize() 
-	var random = randi() % Super.charactersNode.get_child_count() + 1 
-	var charSel = Super.charactersNode.get_child(random - 1)
-	if charSel != null && charSel.hp > 0 :
-		return charSel 
+	if Super.charactersNode.get_child_count() > 0:
+		var random = randi() % Super.charactersNode.get_child_count() + 1 
+		var charSel = Super.charactersNode.get_child(random - 1)
+		if charSel != null && charSel.hp > 0 :
+			return charSel 
 	return null	 
 
 func verifyEndLevel(deadEnemy):

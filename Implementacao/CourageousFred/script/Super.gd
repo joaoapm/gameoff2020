@@ -9,6 +9,7 @@ var boss
 var inimigo
 var transitionUI
 var level = 1
+var timerCoolDown = false
 
 var selectedCharacter
 

@@ -11,7 +11,7 @@ var maxLvl2 = 6
 var nbLevel3 = 20
 var maxLvl3 = 8
 
-var varTimerSpaw=5
+var varTimerSpaw=6
 var varTimerAtack=2.5
 
 var places = []
@@ -26,7 +26,7 @@ func init():
 	spawEnemy()
 	
 	if Super.level == 3: 
-		varTimerAtack=6	
+		varTimerAtack=7	
 		
 	timer = Timer.new()
 	timer.connect("timeout",self,"spawEnemy") 
@@ -121,8 +121,9 @@ func getRandomEnemy() -> Node:
 	randomize() 
 	if listAerial.size() > 0:
 		var random = rand_range(0, listAerial.size())			
-		var enemySel = listAerial[random]
-		if enemySel != null && enemySel.hp > 0 :
+		var enemySel = listAerial[random] 
+		var name= enemySel.get_name()
+		if enemySel != null && "Character" in enemySel.get_name()  && enemySel.hp > 0 :
 			return enemySel 
 	return null	 
 	
@@ -144,7 +145,7 @@ func getRandomChar() -> Node:
 	if Super.charactersNode.get_child_count() > 0:
 		var random = randi() % Super.charactersNode.get_child_count() + 1 
 		var charSel = Super.charactersNode.get_child(random - 1)
-		if charSel != null && charSel.hp > 0 :
+		if charSel != null && "Character" in charSel.get_name() && charSel.hp > 0 :
 			return charSel 
 	return null	 
 

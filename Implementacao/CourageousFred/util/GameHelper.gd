@@ -7,8 +7,9 @@ func createTimer(node,method) -> void:
 	node.add_child(timer) 
 	timer.start() 
 
-func processCoolDown(node):
+func processCoolDown(node) -> bool:
 	GameHelper.createTimer(self,"coolDownTimer")
+	return true
 
 func coolDownTimer():
 	for skill in Super.COOLDOWN:

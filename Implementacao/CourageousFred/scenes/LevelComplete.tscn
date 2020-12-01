@@ -256,7 +256,7 @@ margin_bottom = 630.0
 rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
-text = "   Gunslinger
+text = "   Rocketeer
 Hits  a random
 flying  targets"
 __meta__ = {
@@ -415,7 +415,7 @@ rect_pivot_offset = Vector2( 259.983, 22.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.905882, 0.333333, 0.0627451, 1 )
 text = "  Rocketeer
-Hihts flying 
+Hits flying 
 targets"
 __meta__ = {
 "_edit_use_anchors_": false

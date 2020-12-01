@@ -9,6 +9,7 @@ func _ready():
 	Super.menuAction = $MenuAction
 	Super.transitionUI = $TransitionUI
 	
-	GameHelper.processCoolDown(self)
+	if !Super.timerCoolDown:
+		Super.timerCoolDown = GameHelper.processCoolDown(self)
 	 
 	Super.enemyNode.init()

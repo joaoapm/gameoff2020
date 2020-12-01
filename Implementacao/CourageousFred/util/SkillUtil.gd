@@ -104,9 +104,9 @@ func CURE(character,point,id,target) :
 		character.doAtack(target.get_global_transform().origin,true, null)
 		target.addLife(1)
 		var timer = Timer.new()
-		timer.connect("timeout",self,"afterAtack") 
+		timer.connect("timeout",self,"afterAtack", [character]) 
 		timer.set_wait_time(1)
-		add_child(timer) 
+		character.add_child(timer) 
 		timer.start() 
 
 func AERIAL_ATACK(character,point,id) : 
@@ -118,9 +118,9 @@ func AERIAL_ATACK(character,point,id) :
 		bulledAdd.init(character,enemy,Super.TEAM.PLAYER,false, Super.TYPE_BULLET.ROCKET, false)
 		character.doAtack(enemy.get_global_transform().origin, true, null)
 		var timer = Timer.new()
-		timer.connect("timeout",self,"afterAtack") 
+		timer.connect("timeout",self,"afterAtack", [character]) 
 		timer.set_wait_time(1)
-		add_child(timer) 
+		character.add_child(timer) 
 		timer.start() 
 
 func GRANADE(character,point,id) : 

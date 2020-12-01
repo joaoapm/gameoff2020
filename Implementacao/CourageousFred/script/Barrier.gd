@@ -1,6 +1,6 @@
 extends Spatial
 
-var hp:int = 4
+var hp:int = 3
 
 func init( point) -> void: 
 	$ProgBar.setValueMax(hp)
